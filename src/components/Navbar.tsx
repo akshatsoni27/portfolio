@@ -34,12 +34,12 @@ export default function Navbar() {
             scrolled ? 'shadow-md shadow-black/20' : ''
           }`}
         >
-          <Link to="/" className="group relative flex h-9 w-9 items-center justify-center rounded-full" aria-label="Home" onClick={() => setMenuOpen(false)}>
+          {/* <Link to="/" className="group relative flex h-9 w-9 items-center justify-center rounded-full" aria-label="Home" onClick={() => setMenuOpen(false)}>
             <span className="absolute inset-0 rounded-full accent-gradient transition-transform duration-300 group-hover:scale-110" />
             <span className="relative z-10 flex h-[calc(100%-2px)] w-[calc(100%-2px)] items-center justify-center rounded-full bg-bg font-display text-[13px] italic leading-none text-text-primary">
               AI
             </span>
-          </Link>
+          </Link> */}
 
           <span className="hidden h-5 w-px bg-stroke md:block" />
 

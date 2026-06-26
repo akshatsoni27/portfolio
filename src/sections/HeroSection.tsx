@@ -39,6 +39,7 @@ export default function HeroSection() {
     if (!context) return
 
     const particleCount = 80
+    let raf = 0
 
     const resize = () => {
       const rect = section.getBoundingClientRect()
@@ -49,7 +50,7 @@ export default function HeroSection() {
       context.setTransform(window.devicePixelRatio, 0, 0, window.devicePixelRatio, 0, 0)
 
       if (particlesRef.current.length === 0) {
-        particlesRef.current = Array.from({ length: particleCount }).map(() => ({
+        particlesRef.current = Array.from({ length: particleCount }, () => ({
           x: Math.random() * rect.width,
           y: Math.random() * rect.height,
           vx: (Math.random() - 0.5) * 0.4,
@@ -71,8 +72,6 @@ export default function HeroSection() {
     const onLeave = () => {
       pointerRef.current.active = false
     }
-
-    let raf = 0
 
     const draw = () => {
       const width = canvas.clientWidth
@@ -145,65 +144,107 @@ export default function HeroSection() {
   }, [])
 
   return (
-    <section ref={sectionRef} className="relative flex min-h-screen w-full items-center justify-center overflow-hidden pt-28 md:pt-32">
+    <section ref={sectionRef} className="relative flex min-h-screen w-full items-center overflow-hidden pt-28 md:pt-32">
       <canvas ref={canvasRef} className="absolute inset-0 h-full w-full opacity-80" />
-      <div className="absolute inset-0 bg-gradient-to-b from-bg/20 via-bg/10 to-bg" />
+      <div className="absolute inset-0 bg-gradient-to-b from-bg/25 via-bg/10 to-bg" />
+      <div
+        className="absolute inset-0 opacity-[0.18]"
+        style={{
+          backgroundImage:
+            'radial-gradient(circle at center, rgba(73, 120, 203, 0.14) 0, rgba(73, 120, 203, 0.04) 1px, transparent 1px)',
+          backgroundSize: '24px 24px',
+        }}
+      />
 
-      <div className="absolute left-6 top-28 z-10 flex items-center gap-2 text-xs uppercase tracking-[0.3em] text-muted md:left-10 md:top-32">
-        <span className="relative flex h-2 w-2">
-          <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-500 opacity-75" />
-          <span className="relative inline-flex h-2 w-2 rounded-full bg-green-500" />
-        </span>
-        Available for opportunities
-      </div>
+      <div className="relative z-10 mx-auto flex w-full max-w-[1280px] flex-col gap-12 px-6 lg:flex-row lg:items-center lg:justify-between lg:px-10">
+        <div className="max-w-[620px] lg:pt-8">
+          <div className="blur-in mb-5 text-xs font-medium uppercase tracking-[0.28em] text-[#4E85BF]">
+            Software Engineer | AI Researcher
+          </div>
 
-      <div className="relative z-10 mx-auto max-w-4xl px-6 text-center">
-        <p className="blur-in mb-6 text-lg text-white uppercase tracking-[0.3em] text-muted">I'm</p>
+          <h1 className="name-reveal text-5xl font-semibold leading-[0.95] tracking-[-0.05em] text-text-primary sm:text-6xl md:text-7xl lg:text-[5.5rem]">
+            Code. Innovate.
+            <span className="block text-[#4E85BF]">Impact.</span>
+          </h1>
 
-        <h1 className="name-reveal mb-4 font-display text-6xl italic leading-[0.9] tracking-tight text-text-primary md:text-8xl lg:text-9xl">
-          Akshat Soni
-        </h1>
-
-        <p className="blur-in mb-10 text-base text-muted md:text-lg">
-          I&apos;m a <span className="font-display italic text-text-primary/90">{roleText || 'Software Engineer'}</span><span className="ml-1 inline-block h-[1em] w-[1px] translate-y-[2px] bg-text-primary/70 animate-blink" />
-        </p>
-
-        <p className="blur-in mx-auto mb-12 max-w-2xl text-sm leading-relaxed text-muted md:text-base">
-          Building intelligent systems and elegant interfaces — where performance meets purpose.
-        </p>
-
-        <div className="blur-in flex flex-wrap justify-center gap-5 sm:gap-6">
-          <Link
-            to="/projects"
-            className="group relative overflow-visible rounded-full bg-text-primary px-7 py-3.5 text-sm font-medium text-bg transition-all duration-300 hover:scale-105"
+          <p
+            className="blur-in mt-7 max-w-xl text-[20px] font-medium leading-7 text-[rgb(229,231,235)]"
+            style={{ fontFamily: 'ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"' }}
           >
-            <span className="absolute inset-[-2px] rounded-full accent-gradient opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-            <span className="relative z-10 rounded-full bg-text-primary px-7 py-3.5 text-bg transition-colors duration-300 group-hover:bg-bg group-hover:text-text-primary">
-              View Projects
-            </span>
-          </Link>
+            Passionate about building AI-powered products and solving complex problems with clean, efficient code.
+          </p>
 
-          <Link
-            to="/contact"
-            className="group relative overflow-visible rounded-full border-2 border-stroke px-7 py-3.5 text-sm font-medium text-text-primary transition-all duration-300 hover:scale-105"
-          >
-            <span className="absolute inset-[-2px] rounded-full accent-gradient opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-            <span className="relative z-10">Get in touch</span>
-          </Link>
+          <div className="blur-in mt-8 flex flex-wrap gap-4">
+            <div className="rounded-full border border-[#2f4c86]/70 bg-[#0b1020]/80 px-5 py-3 text-sm text-[#d1d5db] shadow-[0_0_0_1px_rgba(78,133,191,0.15),0_0_20px_rgba(78,133,191,0.08)]">
+              20+ Projects Built
+            </div>
+            <div className="rounded-full border border-[#1f2937] bg-black/40 px-5 py-3 text-sm text-[#d1d5db]">
+              15+ Technologies
+            </div>
+          </div>
+
+          <div className="blur-in mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
+            <Link
+              to="/resume"
+              className="inline-flex items-center justify-center rounded-full border border-[#2f4c86] bg-transparent px-8 py-4 text-[16px] font-medium text-[#e5e7eb] transition-all duration-300 hover:border-[#4E85BF] hover:bg-[#0b1020]"
+            >
+              Download Resume <span className="ml-2 text-[#4E85BF]">↓</span>
+            </Link>
+          </div>
+
+          <div className="blur-in mt-12 flex items-center gap-8 text-muted">
+            <a href="https://github.com/[yourusername]" target="_blank" rel="noreferrer" aria-label="GitHub" className="transition-colors hover:text-text-primary">
+              <svg viewBox="0 0 24 24" className="h-5 w-5 fill-current">
+                <path d="M12 .5C5.7.5.7 5.6.7 11.9c0 5 3.2 9.2 7.7 10.7.6.1.8-.2.8-.6v-2.1c-3.1.7-3.8-1.3-3.8-1.3-.5-1.2-1.3-1.6-1.3-1.6-1-.7.1-.7.1-.7 1.1.1 1.6 1.2 1.6 1.2 1 .1 1.6.7 2 .9.1-.7.4-1.2.7-1.5-2.5-.3-5.1-1.3-5.1-5.8 0-1.3.4-2.3 1.1-3.1-.1-.3-.5-1.5.1-3.1 0 0 .9-.3 3.1 1.1.9-.2 1.8-.3 2.7-.3s1.8.1 2.7.3c2.2-1.5 3.1-1.1 3.1-1.1.6 1.6.2 2.8.1 3.1.7.8 1.1 1.8 1.1 3.1 0 4.5-2.6 5.5-5.1 5.8.4.4.8 1.1.8 2.2v3.3c0 .4.2.7.8.6 4.5-1.5 7.7-5.7 7.7-10.7C23.3 5.6 18.3.5 12 .5Z" />
+              </svg>
+            </a>
+            <a href="https://linkedin.com/in/[yourprofile]" target="_blank" rel="noreferrer" aria-label="LinkedIn" className="transition-colors hover:text-text-primary">
+              <svg viewBox="0 0 24 24" className="h-5 w-5 fill-current">
+                <path d="M4.8 3.9c0 1.1-.9 2-2.1 2-1.1 0-2-.9-2-2s.9-2 2-2c1.2 0 2.1.9 2.1 2ZM.9 8h3.8v12H.9V8Zm6 0h3.7v1.6h.1c.5-.9 1.8-1.9 3.7-1.9 4 0 4.7 2.6 4.7 6V20h-3.8v-5.5c0-1.3 0-3-1.8-3-1.9 0-2.2 1.5-2.2 2.9V20H6.9V8Z" />
+              </svg>
+            </a>
+            <a href="https://twitter.com/[yourusername]" target="_blank" rel="noreferrer" aria-label="Twitter" className="transition-colors hover:text-text-primary">
+              <svg viewBox="0 0 24 24" className="h-5 w-5 fill-current">
+                <path d="M18.9 2H22l-6.8 7.7L23.1 22h-6.6l-5.2-6.4L5.7 22H2.6l7.4-8.4L.9 2h6.7l4.8 5.8L18.9 2Zm-1.2 18h1.7L6.6 3.9H4.8L17.7 20Z" />
+              </svg>
+            </a>
+          </div>
         </div>
 
-        <div className="blur-in mt-14 flex justify-center gap-8 text-muted">
-          <a href="https://github.com/[yourusername]" target="_blank" rel="noreferrer" aria-label="GitHub" className="transition-colors hover:text-text-primary">
-            <svg viewBox="0 0 24 24" className="h-5 w-5 fill-current">
-              <path d="M12 .5C5.7.5.7 5.6.7 11.9c0 5 3.2 9.2 7.7 10.7.6.1.8-.2.8-.6v-2.1c-3.1.7-3.8-1.3-3.8-1.3-.5-1.2-1.3-1.6-1.3-1.6-1-.7.1-.7.1-.7 1.1.1 1.6 1.2 1.6 1.2 1 .1 1.6.7 2 .9.1-.7.4-1.2.7-1.5-2.5-.3-5.1-1.3-5.1-5.8 0-1.3.4-2.3 1.1-3.1-.1-.3-.5-1.5.1-3.1 0 0 .9-.3 3.1 1.1.9-.2 1.8-.3 2.7-.3s1.8.1 2.7.3c2.2-1.5 3.1-1.1 3.1-1.1.6 1.6.2 2.8.1 3.1.7.8 1.1 1.8 1.1 3.1 0 4.5-2.6 5.5-5.1 5.8.4.4.8 1.1.8 2.2v3.3c0 .4.2.7.8.6 4.5-1.5 7.7-5.7 7.7-10.7C23.3 5.6 18.3.5 12 .5Z" />
-            </svg>
-          </a>
-          <a href="https://linkedin.com/in/[yourprofile]" target="_blank" rel="noreferrer" aria-label="LinkedIn" className="transition-colors hover:text-text-primary">
-            <svg viewBox="0 0 24 24" className="h-5 w-5 fill-current">
-              <path d="M4.8 3.9c0 1.1-.9 2-2.1 2-1.1 0-2-.9-2-2s.9-2 2-2c1.2 0 2.1.9 2.1 2ZM.9 8h3.8v12H.9V8Zm6 0h3.7v1.6h.1c.5-.9 1.8-1.9 3.7-1.9 4 0 4.7 2.6 4.7 6V20h-3.8v-5.5c0-1.3 0-3-1.8-3-1.9 0-2.2 1.5-2.2 2.9V20H6.9V8Z" />
-            </svg>
-          </a>
-          
+        <div className="relative mx-auto w-full max-w-[520px] lg:mx-0 lg:ml-auto lg:mr-0">
+          <div className="relative overflow-hidden rounded-[32px] border border-[#2f4c86]/80 bg-[#060b17] p-4 shadow-[0_0_0_1px_rgba(78,133,191,0.18),0_20px_80px_rgba(0,0,0,0.55)]">
+            <div className="absolute inset-0 bg-gradient-to-br from-[#4E85BF]/10 via-transparent to-transparent" />
+            <div className="absolute right-4 top-4 h-24 w-24 rounded-full bg-[#4E85BF]/10 blur-2xl" />
+            <div className="grid place-items-center rounded-[24px] border border-[#2f4c86]/60 bg-[radial-gradient(circle_at_top,rgba(78,133,191,0.12),transparent_52%)] p-3">
+              <div className="relative aspect-[3/4] w-full overflow-hidden rounded-[28px] border border-[#4E85BF]/80 bg-[#0a0f19]">
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_20%,rgba(255,255,255,0.08),transparent_45%)]" />
+                <div className="absolute inset-y-6 right-3 w-2 rounded-full bg-[#4E85BF]/70" />
+                <div className="absolute inset-0 flex items-end justify-center p-6">
+                  <div className="relative h-[88%] w-[82%] rounded-[40px] bg-gradient-to-b from-white/10 via-white/5 to-transparent backdrop-blur-sm">
+                    <div className="absolute inset-x-0 bottom-0 top-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.08),rgba(255,255,255,0.01))]" />
+                    <div className="absolute left-1/2 top-10 h-[75%] w-[78%] -translate-x-1/2 rounded-[48px] bg-[radial-gradient(circle_at_50%_18%,rgba(255,255,255,0.25),rgba(255,255,255,0.05)_25%,rgba(0,0,0,0.0)_55%),linear-gradient(180deg,rgba(255,255,255,0.18),rgba(0,0,0,0.0))] opacity-90" />
+                    <div className="absolute left-1/2 top-8 h-[86%] w-[72%] -translate-x-1/2 rounded-[52px] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.15),rgba(0,0,0,0.05))] shadow-[inset_0_0_0_1px_rgba(255,255,255,0.04)]" />
+                    <div className="absolute bottom-8 left-1/2 h-16 w-44 -translate-x-1/2 rounded-full bg-black/55 blur-xl" />
+                  </div>
+                </div>
+                <div className="absolute inset-0 border border-[#4E85BF]/30" />
+              </div>
+            </div>
+            <div className="absolute -right-6 top-6 hidden h-40 w-40 rounded-full border border-[#4E85BF]/25 md:block" />
+            <div className="absolute -left-4 top-12 hidden grid-cols-6 gap-2 md:grid">
+              {Array.from({ length: 36 }).map((_, index) => (
+                <span key={index} className="h-1.5 w-1.5 rounded-sm bg-[#4E85BF]/80 shadow-[0_0_8px_rgba(78,133,191,0.55)]" />
+              ))}
+            </div>
+          </div>
+
+          <div className="absolute -bottom-5 left-1/2 flex -translate-x-1/2 items-center gap-3 rounded-full border border-[#2f4c86]/70 bg-[#0b1020]/95 px-5 py-3 text-sm text-[#d1d5db] shadow-[0_0_0_1px_rgba(78,133,191,0.12)] backdrop-blur-md">
+            <span className="relative flex h-2.5 w-2.5">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-500 opacity-75" />
+              <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-green-500" />
+            </span>
+            <span>[YOUR NAME] · Open to work</span>
+          </div>
         </div>
       </div>
 
