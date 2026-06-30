@@ -25,7 +25,7 @@ export default function AboutSection() {
               Who I <em className="italic">am</em>
             </h2>
             <p className="max-w-xl text-sm leading-relaxed text-muted md:text-base">
-              I&apos;m a Software Engineer / AI Researcher based in [YOUR CITY], passionate about building things that live at the intersection of AI and software engineering. Currently pursuing my degree at [UNIVERSITY], I work on applied machine learning and product-focused systems. I love writing clean, efficient code and thinking carefully about system design and user experience. Outside of tech, I&apos;m into photography, reading, and long walks.
+              I&apos;m a Software Engineer / AI Researcher based in Santa Cruz, CA, passionate about building things that live at the intersection of AI and software engineering. Currently pursuing my degree at the University of California, Santa Cruz (UCSC), I work on applied machine learning and product-focused systems. I love writing clean, efficient code and thinking carefully about system design and user experience. Outside of tech, I&apos;m into photography, reading, and long walks.
             </p>
 
             <div className="mt-8 flex flex-wrap gap-3">
@@ -53,7 +53,7 @@ export default function AboutSection() {
               <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-transparent to-text-primary/20 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
               <div className="absolute bottom-4 left-4 flex items-center gap-2 rounded-full border border-stroke bg-bg/80 px-3 py-1.5 text-xs backdrop-blur-md">
                 <span className="h-2 w-2 rounded-full bg-green-500" />
-                [YOUR NAME] · Open to work
+                Rajat Maheshwari · Open to work
               </div>
             </div>
           </div>

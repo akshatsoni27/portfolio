@@ -1,100 +1,157 @@
-import { useEffect, useRef } from 'react'
-import { gsap } from 'gsap'
 import { Link } from 'react-router-dom'
 
-const SOCIAL_LINKS = [
-  { label: 'GitHub', href: 'https://github.com/[yourusername]' },
-  { label: 'LinkedIn', href: 'https://linkedin.com/in/[yourprofile]' },
-  { label: 'Twitter', href: 'https://twitter.com/[yourusername]' },
-]
-
 export default function FooterSection() {
-  const marqueeRef = useRef<HTMLDivElement>(null)
-
-  useEffect(() => {
-    if (!marqueeRef.current) return
-    const ctx = gsap.context(() => {
-      gsap.to(marqueeRef.current, {
-        xPercent: -50,
-        duration: 35,
-        ease: 'none',
-        repeat: -1,
-      })
-    })
-    return () => ctx.revert()
-  }, [])
-
   return (
-    <footer className="overflow-hidden bg-bg pb-10 pt-20 md:pb-14 md:pt-24">
-      <div className="mb-16 overflow-hidden">
-        <div ref={marqueeRef} className="flex whitespace-nowrap">
-          {Array.from({ length: 12 }).map((_, index) => (
-            <span key={index} className="mr-8 select-none font-display text-4xl italic text-text-primary/8 md:text-6xl lg:text-7xl">
-              LET&apos;S BUILD SOMETHING GREAT • 
-            </span>
-          ))}
-        </div>
-      </div>
-
-      <div className="mx-auto max-w-[1200px] px-6 md:px-10 lg:px-16">
-        <div className="mx-auto max-w-xl text-center">
-          <p className="mb-4 text-xs uppercase tracking-[0.3em] text-muted">Get in Touch</p>
-          <h2 className="mb-6 text-5xl font-display italic text-text-primary md:text-6xl">Let&apos;s talk.</h2>
-          <p className="mx-auto mb-10 max-w-sm text-sm text-muted">
-            I&apos;m currently open to new opportunities. Whether you have a question, a project idea, or just want to say hi, my inbox is always open.
-          </p>
-
-          <div className="flex flex-col justify-center gap-4 sm:flex-row">
-            <a
-              href="mailto:your@email.com"
-              className="group relative inline-flex items-center justify-center rounded-full border border-stroke px-6 py-3 text-sm text-text-primary transition-all duration-300 hover:scale-105"
-            >
-              <span className="absolute inset-[-2px] -z-10 rounded-full opacity-0 transition-opacity duration-300 group-hover:opacity-100 accent-gradient" />
-              hello@yourdomain.com ↗
-            </a>
-            <a
-              href="https://linkedin.com/in/[yourprofile]"
-              target="_blank"
-              rel="noreferrer"
-              className="group relative inline-flex items-center justify-center rounded-full border border-stroke px-6 py-3 text-sm text-text-primary transition-all duration-300 hover:scale-105"
-            >
-              <span className="absolute inset-[-2px] -z-10 rounded-full opacity-0 transition-opacity duration-300 group-hover:opacity-100 accent-gradient" />
-              Connect on LinkedIn ↗
-            </a>
+    <footer className="w-full bg-[#050505] border-t border-stroke">
+      <div className="mx-auto max-w-[1200px] px-6 py-16 md:px-10 lg:px-16">
+        <div className="grid grid-cols-1 gap-12 md:grid-cols-3 md:gap-8 lg:gap-16">
+          {/* Column 1: Intro */}
+          <div className="flex flex-col gap-6">
+            <h3 className="text-lg font-semibold text-text-primary">Rajat Maheshwari</h3>
+            <p className="text-sm leading-relaxed text-muted">
+              Computer Science senior at UCSC passionate about AI, LLMs, and backend engineering. Currently seeking <strong className="font-semibold text-text-primary">full-time opportunities</strong> in software engineering and AI research.
+            </p>
+            <div className="flex flex-wrap gap-3">
+              <a
+                href="mailto:rajat17.maheshwari@gmail.com"
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-[#0d0d0d] text-muted transition-all duration-300 hover:border-white/25 hover:bg-[#151515] hover:text-text-primary"
+                aria-label="Email"
+              >
+                <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                  <polyline points="22,6 12,13 2,6" />
+                </svg>
+              </a>
+              <a
+                href="tel:+18313468559"
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-[#0d0d0d] text-muted transition-all duration-300 hover:border-white/25 hover:bg-[#151515] hover:text-text-primary"
+                aria-label="Phone"
+              >
+                <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                </svg>
+              </a>
+              <a
+                href="https://linkedin.com/in/rajat17maheshwari"
+                target="_blank"
+                rel="noreferrer"
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-[#0d0d0d] text-muted transition-all duration-300 hover:border-white/25 hover:bg-[#151515] hover:text-text-primary"
+                aria-label="LinkedIn"
+              >
+                <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4">
+                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                  <rect x="2" y="9" width="4" height="12" />
+                  <circle cx="4" cy="4" r="2" />
+                </svg>
+              </a>
+              <a
+                href="https://github.com/rajatmaheshwari17"
+                target="_blank"
+                rel="noreferrer"
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-[#0d0d0d] text-muted transition-all duration-300 hover:border-white/25 hover:bg-[#151515] hover:text-text-primary"
+                aria-label="GitHub"
+              >
+                <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4">
+                  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+                </svg>
+              </a>
+              <a
+                href="/resume.pdf"
+                target="_blank"
+                rel="noreferrer"
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-[#0d0d0d] text-muted transition-all duration-300 hover:border-white/25 hover:bg-[#151515] hover:text-text-primary"
+                aria-label="Resume"
+              >
+                <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                  <polyline points="14,2 14,8 20,8" />
+                  <line x1="16" y1="13" x2="8" y2="13" />
+                  <line x1="16" y1="17" x2="8" y2="17" />
+                  <polyline points="10,9 9,9 8,9" />
+                </svg>
+              </a>
+            </div>
           </div>
-        </div>
 
-        <div className="mt-16 border-t border-stroke pt-8">
-          <div className="grid gap-6 md:grid-cols-3 md:items-center">
-            <div className="flex items-center gap-3 text-xs text-muted">
-              <div className="flex h-9 w-9 items-center justify-center rounded-full border border-stroke bg-surface font-display italic text-text-primary">AI</div>
-              <span>Built with React &amp; ♥</span>
-            </div>
+          {/* Column 2: Quick Links */}
+          <div className="flex flex-col gap-6">
+            <h3 className="text-lg font-semibold text-text-primary">Quick Links</h3>
+            <ul className="flex flex-col gap-3">
+              <li>
+                <Link to="/" className="text-sm text-muted transition-colors duration-200 hover:text-text-primary">
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link to="/projects" className="text-sm text-muted transition-colors duration-200 hover:text-text-primary">
+                  Projects
+                </Link>
+              </li>
+              <li>
+                <Link to="/resume" className="text-sm text-muted transition-colors duration-200 hover:text-text-primary">
+                  Resume
+                </Link>
+              </li>
+              <li>
+                <Link to="/contact" className="text-sm text-muted transition-colors duration-200 hover:text-text-primary">
+                  Contact
+                </Link>
+              </li>
+            </ul>
+          </div>
 
-            <div className="flex flex-wrap justify-center gap-4 text-xs text-muted">
-              <Link to="/" className="hover:text-text-primary">Home</Link>
-              <Link to="/projects" className="hover:text-text-primary">Projects</Link>
-              <Link to="/resume" className="hover:text-text-primary">Resume</Link>
-              <Link to="/contact" className="hover:text-text-primary">Contact</Link>
-            </div>
-
-            <div className="flex items-center justify-center gap-4 md:justify-end">
-              {SOCIAL_LINKS.map(link => (
-                <a key={link.label} href={link.href} target="_blank" rel="noreferrer" className="text-xs text-muted transition-colors hover:text-text-primary">
-                  {link.label}
+          {/* Column 3: Get In Touch */}
+          <div className="flex flex-col gap-6">
+            <h3 className="text-lg font-semibold text-text-primary">Get In Touch</h3>
+            <ul className="flex flex-col gap-4">
+              <li>
+                <a href="mailto:rajat17.maheshwari@gmail.com" className="flex items-center gap-3 text-sm text-muted transition-colors duration-200 hover:text-text-primary">
+                  <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4 flex-shrink-0 text-[#4E85BF]">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                    <polyline points="22,6 12,13 2,6" />
+                  </svg>
+                  <span>rajat17.maheshwari@gmail.com</span>
                 </a>
-              ))}
-              <span className="flex items-center gap-2 text-xs text-muted">
-                <span className="relative flex h-2 w-2">
-                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-75" />
-                  <span className="relative inline-flex h-2 w-2 rounded-full bg-green-500" />
-                </span>
-                Available for work
-              </span>
-            </div>
+              </li>
+              <li>
+                <a href="tel:+18313468559" className="flex items-center gap-3 text-sm text-muted transition-colors duration-200 hover:text-text-primary">
+                  <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4 flex-shrink-0 text-[#4E85BF]">
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                  </svg>
+                  <span>+1 (831) 346-8559</span>
+                </a>
+              </li>
+              <li>
+                <a href="https://linkedin.com/in/rajat17maheshwari" target="_blank" rel="noreferrer" className="flex items-center gap-3 text-sm text-muted transition-colors duration-200 hover:text-text-primary">
+                  <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4 flex-shrink-0 text-[#4E85BF]">
+                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                    <rect x="2" y="9" width="4" height="12" />
+                    <circle cx="4" cy="4" r="2" />
+                  </svg>
+                  <span>linkedin.com/in/rajat17maheshwari</span>
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/rajatmaheshwari17" target="_blank" rel="noreferrer" className="flex items-center gap-3 text-sm text-muted transition-colors duration-200 hover:text-text-primary">
+                  <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4 flex-shrink-0 text-[#4E85BF]">
+                    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+                  </svg>
+                  <span>github.com/rajatmaheshwari17</span>
+                </a>
+              </li>
+              <li className="flex items-center gap-3 text-sm text-muted">
+                <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4 flex-shrink-0 text-[#4E85BF]">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                  <circle cx="12" cy="10" r="3" />
+                </svg>
+                <span>Santa Cruz, CA</span>
+              </li>
+            </ul>
           </div>
+        </div>
 
-          <p className="mt-6 text-center text-xs text-muted/40">© 2026 [YOUR NAME]. All rights reserved.</p>
+        <div className="mt-16 border-t border-white/5 pt-8 text-center text-xs text-muted/40">
+          <p>© 2026 Rajat Maheshwari. All rights reserved.</p>
         </div>
       </div>
     </footer>

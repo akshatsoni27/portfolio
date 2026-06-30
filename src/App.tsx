@@ -4,6 +4,7 @@ import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
 import CustomCursor from './components/CustomCursor'
 import LoadingScreen from './components/LoadingScreen'
 import Navbar from './components/Navbar'
+import FooterSection from './sections/FooterSection'
 
 const HomePage = lazy(() => import('./pages/Home'))
 const ProjectsPage = lazy(() => import('./pages/Projects'))
@@ -36,6 +37,7 @@ export default function App() {
               </Routes>
             </Suspense>
           </main>
+          <FooterSection />
         </BrowserRouter>
       )}
     </>
