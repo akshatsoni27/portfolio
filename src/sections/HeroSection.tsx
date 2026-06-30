@@ -193,17 +193,17 @@ export default function HeroSection() {
           </div>
 
           <div className="blur-in mt-12 flex items-center gap-8 text-muted">
-            <a href="https://github.com/rajatmaheshwari17" target="_blank" rel="noreferrer" aria-label="GitHub" className="transition-colors hover:text-text-primary">
+            <a href="https://github.com/akshatsoni27" target="_blank" rel="noreferrer" aria-label="GitHub" className="transition-colors hover:text-text-primary">
               <svg viewBox="0 0 24 24" className="h-5 w-5 fill-current">
                 <path d="M12 .5C5.7.5.7 5.6.7 11.9c0 5 3.2 9.2 7.7 10.7.6.1.8-.2.8-.6v-2.1c-3.1.7-3.8-1.3-3.8-1.3-.5-1.2-1.3-1.6-1.3-1.6-1-.7.1-.7.1-.7 1.1.1 1.6 1.2 1.6 1.2 1 .1 1.6.7 2 .9.1-.7.4-1.2.7-1.5-2.5-.3-5.1-1.3-5.1-5.8 0-1.3.4-2.3 1.1-3.1-.1-.3-.5-1.5.1-3.1 0 0 .9-.3 3.1 1.1.9-.2 1.8-.3 2.7-.3s1.8.1 2.7.3c2.2-1.5 3.1-1.1 3.1-1.1.6 1.6.2 2.8.1 3.1.7.8 1.1 1.8 1.1 3.1 0 4.5-2.6 5.5-5.1 5.8.4.4.8 1.1.8 2.2v3.3c0 .4.2.7.8.6 4.5-1.5 7.7-5.7 7.7-10.7C23.3 5.6 18.3.5 12 .5Z" />
               </svg>
             </a>
-            <a href="https://linkedin.com/in/rajat17maheshwari" target="_blank" rel="noreferrer" aria-label="LinkedIn" className="transition-colors hover:text-text-primary">
+            <a href="https://linkedin.com/in/akshatsoni27" target="_blank" rel="noreferrer" aria-label="LinkedIn" className="transition-colors hover:text-text-primary">
               <svg viewBox="0 0 24 24" className="h-5 w-5 fill-current">
                 <path d="M4.8 3.9c0 1.1-.9 2-2.1 2-1.1 0-2-.9-2-2s.9-2 2-2c1.2 0 2.1.9 2.1 2ZM.9 8h3.8v12H.9V8Zm6 0h3.7v1.6h.1c.5-.9 1.8-1.9 3.7-1.9 4 0 4.7 2.6 4.7 6V20h-3.8v-5.5c0-1.3 0-3-1.8-3-1.9 0-2.2 1.5-2.2 2.9V20H6.9V8Z" />
               </svg>
             </a>
-            <a href="https://twitter.com/rajat_maheshwari" target="_blank" rel="noreferrer" aria-label="Twitter" className="transition-colors hover:text-text-primary">
+            <a href="https://twitter.com/akshatsoni27" target="_blank" rel="noreferrer" aria-label="Twitter" className="transition-colors hover:text-text-primary">
               <svg viewBox="0 0 24 24" className="h-5 w-5 fill-current">
                 <path d="M18.9 2H22l-6.8 7.7L23.1 22h-6.6l-5.2-6.4L5.7 22H2.6l7.4-8.4L.9 2h6.7l4.8 5.8L18.9 2Zm-1.2 18h1.7L6.6 3.9H4.8L17.7 20Z" />
               </svg>
@@ -243,7 +243,7 @@ export default function HeroSection() {
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-500 opacity-75" />
               <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-green-500" />
             </span>
-            <span>Rajat Maheshwari · Open to work</span>
+            <span>Akshat Soni · Open to work</span>
           </div>
         </div>
       </div>

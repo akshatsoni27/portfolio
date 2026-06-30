@@ -1,7 +1,7 @@
 import { useDocumentTitle } from '../hooks/useDocumentTitle'
 
 export default function ContactPage() {
-  useDocumentTitle('Contact | Rajat Maheshwari')
+  useDocumentTitle('Contact | Akshat Soni')
 
   return (
     <section className="relative flex min-h-[65vh] w-full flex-col items-center justify-center px-6 pt-32 pb-16">

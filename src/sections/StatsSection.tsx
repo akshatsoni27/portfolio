@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 
 const STATS = [
@@ -15,6 +16,29 @@ const heatmap = buildHeatmap()
 const colors = ['bg-stroke/30', 'bg-[#0e4429]', 'bg-[#006d32]', 'bg-[#26a641]', 'bg-[#39d353]']
 
 export default function StatsSection() {
+  const [theme, setTheme] = useState<'dark' | 'light'>(() => {
+    return document.documentElement.classList.contains('light') ? 'light' : 'dark'
+  })
+
+  useEffect(() => {
+    const handleThemeChange = (e: Event) => {
+      const customEvent = e as CustomEvent<'dark' | 'light'>
+      setTheme(customEvent.detail)
+    }
+    window.addEventListener('themechange', handleThemeChange)
+
+    const observer = new MutationObserver(() => {
+      const isLight = document.documentElement.classList.contains('light')
+      setTheme(isLight ? 'light' : 'dark')
+    })
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] })
+
+    return () => {
+      window.removeEventListener('themechange', handleThemeChange)
+      observer.disconnect()
+    }
+  }, [])
+
   return (
     <section className="bg-bg py-16 md:py-20">
       <div className="mx-auto max-w-[900px] px-6 md:px-10 lg:px-16">
@@ -70,12 +94,12 @@ export default function StatsSection() {
 
           <div className="mt-8 grid gap-4 md:grid-cols-2">
             <img
-              src="https://github-readme-stats.vercel.app/api?username=YOUR_USERNAME&theme=dark&bg_color=0a0a0a&border_color=1f1f1f&title_color=f5f5f5&text_color=878787&icon_color=4E85BF&hide_border=false"
+              src={`https://github-readme-stats.vercel.app/api?username=akshatsoni27&theme=${theme === 'dark' ? 'dark' : 'default'}&bg_color=${theme === 'dark' ? '0a0a0a' : 'f9f9f9'}&border_color=${theme === 'dark' ? '1f1f1f' : 'e5e5e5'}&title_color=${theme === 'dark' ? 'f5f5f5' : '1a1a1a'}&text_color=${theme === 'dark' ? '878787' : '535353'}&icon_color=4E85BF&hide_border=false`}
               alt="GitHub stats"
               className="w-full rounded-xl border border-stroke"
             />
             <img
-              src="https://github-readme-stats.vercel.app/api/top-langs/?username=YOUR_USERNAME&theme=dark&bg_color=0a0a0a&border_color=1f1f1f&title_color=f5f5f5&text_color=878787&layout=compact"
+              src={`https://github-readme-stats.vercel.app/api/top-langs/?username=akshatsoni27&theme=${theme === 'dark' ? 'dark' : 'default'}&bg_color=${theme === 'dark' ? '0a0a0a' : 'f9f9f9'}&border_color=${theme === 'dark' ? '1f1f1f' : 'e5e5e5'}&title_color=${theme === 'dark' ? 'f5f5f5' : '1a1a1a'}&text_color=${theme === 'dark' ? '878787' : '535353'}&layout=compact`}
               alt="Top languages"
               className="w-full rounded-xl border border-stroke"
             />

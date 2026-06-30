@@ -53,7 +53,7 @@ export default function AboutSection() {
               <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-transparent to-text-primary/20 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
               <div className="absolute bottom-4 left-4 flex items-center gap-2 rounded-full border border-stroke bg-bg/80 px-3 py-1.5 text-xs backdrop-blur-md">
                 <span className="h-2 w-2 rounded-full bg-green-500" />
-                Rajat Maheshwari · Open to work
+                Akshat Soni · Open to work
               </div>
             </div>
           </div>
