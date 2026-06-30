@@ -105,7 +105,7 @@ export default function WorksSection() {
               <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 <div className="relative rounded-full overflow-visible">
                   <span className="absolute inset-[-2px] rounded-full accent-gradient -z-10" />
-                  <div className="bg-white rounded-full px-5 py-2.5 text-sm font-body text-bg">
+                  <div className="bg-text-primary rounded-full px-5 py-2.5 text-sm font-body text-bg">
                     View — <em className="font-display italic">{project.title}</em>
                   </div>
                 </div>

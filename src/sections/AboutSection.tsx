@@ -40,7 +40,7 @@ export default function AboutSection() {
               href="/resume.pdf"
               target="_blank"
               rel="noreferrer"
-              className="group mt-8 inline-flex rounded-full border border-stroke px-6 py-3 text-sm text-muted transition-colors hover:text-text-primary"
+              className="group relative mt-8 inline-flex rounded-full border border-stroke px-6 py-3 text-sm text-muted transition-colors hover:text-text-primary"
             >
               <span className="absolute inset-[-2px] -z-10 rounded-full opacity-0 transition-opacity duration-300 group-hover:opacity-100 accent-gradient" />
               Download Resume

@@ -168,17 +168,17 @@ export default function HeroSection() {
           </h1>
 
           <p
-            className="blur-in mt-7 max-w-xl text-[20px] font-medium leading-7 text-[rgb(229,231,235)]"
+            className="blur-in mt-7 max-w-xl text-[20px] font-medium leading-7 text-text-primary/80"
             style={{ fontFamily: 'ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"' }}
           >
             Passionate about building AI-powered products and solving complex problems with clean, efficient code.
           </p>
 
           <div className="blur-in mt-8 flex flex-wrap gap-4">
-            <div className="rounded-full border border-[#2f4c86]/70 bg-[#0b1020]/80 px-5 py-3 text-sm text-[#d1d5db] shadow-[0_0_0_1px_rgba(78,133,191,0.15),0_0_20px_rgba(78,133,191,0.08)]">
+            <div className="rounded-full border border-stroke bg-surface px-5 py-3 text-sm text-muted">
               20+ Projects Built
             </div>
-            <div className="rounded-full border border-[#1f2937] bg-black/40 px-5 py-3 text-sm text-[#d1d5db]">
+            <div className="rounded-full border border-stroke bg-surface px-5 py-3 text-sm text-muted">
               15+ Technologies
             </div>
           </div>
@@ -186,7 +186,7 @@ export default function HeroSection() {
           <div className="blur-in mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
             <Link
               to="/resume"
-              className="inline-flex items-center justify-center rounded-full border border-[#2f4c86] bg-transparent px-8 py-4 text-[16px] font-medium text-[#e5e7eb] transition-all duration-300 hover:border-[#4E85BF] hover:bg-[#0b1020]"
+              className="inline-flex items-center justify-center rounded-full border border-stroke bg-transparent px-8 py-4 text-[16px] font-medium text-text-primary transition-all duration-300 hover:border-[#4E85BF] hover:bg-surface"
             >
               Download Resume <span className="ml-2 text-[#4E85BF]">↓</span>
             </Link>
@@ -212,11 +212,11 @@ export default function HeroSection() {
         </div>
 
         <div className="relative mx-auto w-full max-w-[520px] lg:mx-0 lg:ml-auto lg:mr-0">
-          <div className="relative overflow-hidden rounded-[32px] border border-[#2f4c86]/80 bg-[#060b17] p-4 shadow-[0_0_0_1px_rgba(78,133,191,0.18),0_20px_80px_rgba(0,0,0,0.55)]">
+          <div className="relative overflow-hidden rounded-[32px] border border-stroke bg-surface p-4 shadow-xl">
             <div className="absolute inset-0 bg-gradient-to-br from-[#4E85BF]/10 via-transparent to-transparent" />
             <div className="absolute right-4 top-4 h-24 w-24 rounded-full bg-[#4E85BF]/10 blur-2xl" />
-            <div className="grid place-items-center rounded-[24px] border border-[#2f4c86]/60 bg-[radial-gradient(circle_at_top,rgba(78,133,191,0.12),transparent_52%)] p-3">
-              <div className="relative aspect-[3/4] w-full overflow-hidden rounded-[28px] border border-[#4E85BF]/80 bg-[#0a0f19]">
+            <div className="grid place-items-center rounded-[24px] border border-stroke/60 bg-[radial-gradient(circle_at_top,rgba(78,133,191,0.12),transparent_52%)] p-3">
+              <div className="relative aspect-[3/4] w-full overflow-hidden rounded-[28px] border border-stroke bg-bg">
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_20%,rgba(255,255,255,0.08),transparent_45%)]" />
                 <div className="absolute inset-y-6 right-3 w-2 rounded-full bg-[#4E85BF]/70" />
                 <div className="absolute inset-0 flex items-end justify-center p-6">
@@ -238,7 +238,7 @@ export default function HeroSection() {
             </div>
           </div>
 
-          <div className="absolute -bottom-5 left-1/2 flex -translate-x-1/2 items-center gap-3 rounded-full border border-[#2f4c86]/70 bg-[#0b1020]/95 px-5 py-3 text-sm text-[#d1d5db] shadow-[0_0_0_1px_rgba(78,133,191,0.12)] backdrop-blur-md">
+          <div className="absolute -bottom-5 left-1/2 flex -translate-x-1/2 items-center gap-3 rounded-full border border-stroke bg-surface/95 px-5 py-3 text-sm text-text-primary shadow-lg backdrop-blur-md">
             <span className="relative flex h-2.5 w-2.5">
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-500 opacity-75" />
               <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-green-500" />

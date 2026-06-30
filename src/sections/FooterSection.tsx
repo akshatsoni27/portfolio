@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 
 export default function FooterSection() {
   return (
-    <footer className="w-full bg-[#050505] border-t border-stroke">
+    <footer className="w-full bg-surface border-t border-stroke">
       <div className="mx-auto max-w-[1200px] px-6 pt-12 pb-6 md:px-10 lg:px-16">
         <div className="grid grid-cols-1 gap-12 md:grid-cols-3 md:gap-8 lg:gap-20">
           {/* Column 1: Intro */}
@@ -14,7 +14,7 @@ export default function FooterSection() {
             <div className="flex flex-wrap gap-3 mt-1">
               <a
                 href="mailto:akshatsoni0427@gmail.com"
-                className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-[#0d0d0d] text-muted transition-all duration-300 hover:border-white/25 hover:bg-[#151515] hover:text-text-primary"
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-stroke bg-surface text-muted transition-all duration-300 hover:border-text-primary/30 hover:bg-bg hover:text-text-primary"
                 aria-label="Email"
               >
                 <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4">
@@ -24,7 +24,7 @@ export default function FooterSection() {
               </a>
               <a
                 href="tel:+18313468559"
-                className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-[#0d0d0d] text-muted transition-all duration-300 hover:border-white/25 hover:bg-[#151515] hover:text-text-primary"
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-stroke bg-surface text-muted transition-all duration-300 hover:border-text-primary/30 hover:bg-bg hover:text-text-primary"
                 aria-label="Phone"
               >
                 <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4">
@@ -35,7 +35,7 @@ export default function FooterSection() {
                 href="https://linkedin.com/in/akshatsoni27"
                 target="_blank"
                 rel="noreferrer"
-                className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-[#0d0d0d] text-muted transition-all duration-300 hover:border-white/25 hover:bg-[#151515] hover:text-text-primary"
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-stroke bg-surface text-muted transition-all duration-300 hover:border-text-primary/30 hover:bg-bg hover:text-text-primary"
                 aria-label="LinkedIn"
               >
                 <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4">
@@ -48,7 +48,7 @@ export default function FooterSection() {
                 href="https://github.com/akshatsoni27"
                 target="_blank"
                 rel="noreferrer"
-                className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-[#0d0d0d] text-muted transition-all duration-300 hover:border-white/25 hover:bg-[#151515] hover:text-text-primary"
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-stroke bg-surface text-muted transition-all duration-300 hover:border-text-primary/30 hover:bg-bg hover:text-text-primary"
                 aria-label="GitHub"
               >
                 <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4">
@@ -59,7 +59,7 @@ export default function FooterSection() {
                 href="/resume.pdf"
                 target="_blank"
                 rel="noreferrer"
-                className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-[#0d0d0d] text-muted transition-all duration-300 hover:border-white/25 hover:bg-[#151515] hover:text-text-primary"
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-stroke bg-surface text-muted transition-all duration-300 hover:border-text-primary/30 hover:bg-bg hover:text-text-primary"
                 aria-label="Resume"
               >
                 <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="h-4 w-4">
@@ -150,7 +150,7 @@ export default function FooterSection() {
           </div>
         </div>
 
-        <div className="mt-8 border-t border-white/5 pt-6 text-center text-xs text-muted/40">
+        <div className="mt-8 border-t border-stroke pt-6 text-center text-xs text-muted/40">
           <p>© 2026 Akshat Soni. All rights reserved.</p>
         </div>
       </div>

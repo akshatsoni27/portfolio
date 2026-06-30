@@ -10,16 +10,17 @@
   --bg: 0 0% 4%;
   --surface: 0 0% 8%;
   --text: 0 0% 96%;
-  --muted: 0 0% 53%;
+  --muted: 0 0% 65%;
   --stroke: 0 0% 12%;
   --accent: 0 0% 96%;
+  color-scheme: dark;
 }
 
 :root.light {
   --bg: 0 0% 98%;
   --surface: 0 0% 100%;
   --text: 0 0% 10%;
-  --muted: 0 0% 45%;
+  --muted: 0 0% 40%;
   --stroke: 0 0% 88%;
   --accent: 0 0% 10%;
   color-scheme: light;
@@ -48,7 +49,6 @@ body {
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color-scheme: dark;
 }
 
 @media (pointer: fine) {
