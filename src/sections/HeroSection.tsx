@@ -31,10 +31,14 @@ export default function HeroSection() {
   const smoothMouseY = useSpring(mouseY, springConfig)
 
   // Map mouse values to translation / rotation offsets
-  const cardX = useTransform(smoothMouseX, [-0.5, 0.5], [15, -15])
-  const cardY = useTransform(smoothMouseY, [-0.5, 0.5], [15, -15])
-  const rotateX = useTransform(smoothMouseY, [-0.5, 0.5], [12, -12]) // y-axis movements map to x-axis rotation
-  const rotateY = useTransform(smoothMouseX, [-0.5, 0.5], [-12, 12]) // x-axis movements map to y-axis rotation
+  const cardX = useTransform(smoothMouseX, [-0.5, 0.5], [20, -20])
+  const cardY = useTransform(smoothMouseY, [-0.5, 0.5], [20, -20])
+  const rotateX = useTransform(smoothMouseY, [-0.5, 0.5], [16, -16]) // y-axis movements map to x-axis rotation
+  const rotateY = useTransform(smoothMouseX, [-0.5, 0.5], [-16, 16]) // x-axis movements map to y-axis rotation
+
+  // Glare sheen reflection offsets
+  const glareX = useTransform(smoothMouseX, [-0.5, 0.5], ['-50%', '50%'])
+  const glareY = useTransform(smoothMouseY, [-0.5, 0.5], ['-50%', '50%'])
 
   // Text shifts (subtle parallax)
   const textX = useTransform(smoothMouseX, [-0.5, 0.5], [-8, 8])
@@ -164,7 +168,7 @@ export default function HeroSection() {
           const distance = Math.sqrt(dx * dx + dy * dy)
 
           if (distance < 120) {
-            context.strokeStyle = `hsla(0, 0%, 12%, ${1 - distance / 120})`
+            context.strokeStyle = `rgba(78, 133, 191, ${0.18 * (1 - distance / 120)})`
             context.beginPath()
             context.moveTo(first.x, first.y)
             context.lineTo(second.x, second.y)
@@ -174,7 +178,7 @@ export default function HeroSection() {
       }
 
       for (const particle of particles) {
-        context.fillStyle = 'hsla(0, 0%, 12%, 0.9)'
+        context.fillStyle = 'rgba(137, 170, 204, 0.7)'
         context.beginPath()
         context.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2)
         context.fill()
@@ -317,8 +321,19 @@ export default function HeroSection() {
               transform: 'translateZ(0px)',
               transformStyle: 'preserve-3d'
             }}
-            className="absolute left-[7%] top-[5%] w-[85%] h-[80%] rounded-[28px] border border-stroke/80 bg-surface/60 p-5 shadow-xl backdrop-blur-md"
+            className="absolute left-[7%] top-[5%] w-[85%] h-[80%] rounded-[28px] border border-white/10 bg-surface/60 p-5 shadow-[0_20px_50px_rgba(0,0,0,0.5),_0_0_30px_rgba(78,133,191,0.15)] backdrop-blur-md overflow-hidden"
           >
+            {/* Glare Sheen Overlay */}
+            <motion.div 
+              style={{ 
+                x: glareX, 
+                y: glareY,
+                background: 'radial-gradient(circle at center, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0) 65%)',
+                transform: 'translateZ(1px)',
+              }}
+              className="absolute -inset-[50%] pointer-events-none rounded-[28px] mix-blend-overlay"
+            />
+
             {/* Ambient inner glow */}
             <div className="absolute inset-0 bg-gradient-to-br from-[#4E85BF]/10 via-transparent to-transparent rounded-[28px] pointer-events-none" />
             
@@ -382,7 +397,7 @@ export default function HeroSection() {
             style={{ 
               transform: 'translateZ(45px)',
             }}
-            className="absolute left-0 bottom-[6%] w-[62%] rounded-2xl border border-stroke bg-bg/95 p-4 shadow-2xl backdrop-blur-xl font-mono text-[9px] sm:text-[10px] leading-relaxed text-muted"
+            className="absolute left-0 bottom-[6%] w-[62%] rounded-2xl border border-white/10 bg-bg/90 p-4 shadow-[0_15px_35px_rgba(0,0,0,0.6),_0_0_20px_rgba(78,133,191,0.08)] backdrop-blur-xl font-mono text-[9px] sm:text-[10px] leading-relaxed text-muted"
           >
             {/* Window header */}
             <div className="flex items-center justify-between pb-2 mb-2 border-b border-stroke/60">
@@ -425,7 +440,7 @@ export default function HeroSection() {
             style={{ 
               transform: 'translateZ(80px)',
             }}
-            className="absolute right-[2%] top-[10%] w-[42%] rounded-2xl border border-stroke bg-surface/95 p-4 shadow-2xl backdrop-blur-xl flex flex-col gap-2"
+            className="absolute right-[2%] top-[10%] w-[42%] rounded-2xl border border-white/10 bg-surface/95 p-4 shadow-[0_15px_35px_rgba(0,0,0,0.5),_0_0_25px_rgba(137,170,204,0.08)] backdrop-blur-xl flex flex-col gap-2"
           >
             <div className="flex items-center justify-between">
               <span className="text-[8px] font-bold text-muted/60 tracking-wider">SYSTEM STATUS</span>
