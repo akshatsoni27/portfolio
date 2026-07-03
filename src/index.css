@@ -168,3 +168,26 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: hsl(var(--muted));
 }
+
+.grid-bg {
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M 60 0 L 0 0 0 60' fill='none' stroke='rgba(255,255,255,0.06)' stroke-width='0.75' stroke-dasharray='2,3'/%3E%3C/svg%3E");
+  background-size: 60px 60px;
+}
+
+.light .grid-bg {
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M 60 0 L 0 0 0 60' fill='none' stroke='rgba(0,0,0,0.06)' stroke-width='0.75' stroke-dasharray='2,3'/%3E%3C/svg%3E");
+  background-size: 60px 60px;
+}
+
+/* Global brand blue color override for Light Mode */
+:root.light .text-blue-500 {
+  color: #2563EB !important;
+}
+
+:root.light .bg-blue-500 {
+  background-color: #2563EB !important;
+}
+
+:root.light .bg-blue-500\/30 {
+  background-color: rgba(37, 99, 235, 0.3) !important;
+}
