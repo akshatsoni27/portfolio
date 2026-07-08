@@ -11,10 +11,10 @@ const HERO_CONTENT = {
     '/ BUILDING SOFTWARE THAT THINKS'
   ],
   description: [
-    "I'M A COMPUTER SCIENCE ENTHUSIAST,",
-    "PASSIONATE ABOUT AI, LOGIC, AND SYSTEM DESIGN,",
-    "WHO TURNS COMPLEX IDEAS INTO REAL-WORLD SOLUTIONS",
-    "AND DRIVE IMPACT THROUGH TECHNOLOGY."
+    "I'M A COMPUTER SCIENCE STUDENT",
+    "BUILDING AI-POWERED APPLICATIONS,",
+    "MODERN WEB EXPERIENCES, AND INTELLIGENT SYSTEMS",
+    "THAT SOLVE REAL-WORLD PROBLEMS."
   ],
   socials: [
     {
@@ -134,7 +134,7 @@ export default function HeroSection() {
             className="w-full md:w-[50%] flex flex-col items-center md:items-start z-10 order-1 md:order-2"
           >
             {/* Name */}
-            <div className="text-center md:text-left tracking-[0.25em] md:tracking-[0.35em] font-sans font-medium text-xs sm:text-sm text-text-primary uppercase mb-4 md:pl-2 select-none">
+            <div className="text-center md:text-left tracking-[0.35em] md:tracking-[0.45em] font-sans font-semibold text-xs sm:text-sm text-text-primary uppercase mb-4 md:pl-2 select-none">
               {HERO_CONTENT.name}
             </div>
             
@@ -160,7 +160,7 @@ export default function HeroSection() {
           variants={fadeUpVariants}
           className="w-full max-w-2xl mx-auto px-6 mt-10 md:mt-16 text-center select-none"
         >
-          <p className="text-[10px] sm:text-xs md:text-sm font-sans font-normal tracking-[0.18em] leading-relaxed text-muted uppercase">
+          <p className="text-[10px] sm:text-xs md:text-sm font-sans font-normal tracking-[0.18em] leading-relaxed text-text-primary uppercase">
             {HERO_CONTENT.description.map((line, idx) => (
               <span key={idx} className="block">
                 {line}

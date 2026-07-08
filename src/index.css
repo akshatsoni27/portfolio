@@ -51,6 +51,14 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+p {
+  color: hsl(var(--text)) !important;
+}
+
+:root.light p {
+  color: #000000 !important;
+}
+
 @media (pointer: fine) {
   body {
     cursor: none;
