@@ -2,7 +2,7 @@ import { motion } from 'framer-motion'
 
 // Configuration for Rajat Maheshwari portfolio content (exactly as shown in reference photos)
 const HERO_CONTENT = {
-  heading: ['BUILDING', 'What is next'],
+  heading: ['CRAFTING', 'DIGITAL INTELLIGENCE'],
   name: 'Akshat Soni',
   location: 'BASED IN Indore, India',
   skills: [
@@ -139,10 +139,10 @@ export default function HeroSection() {
             </div>
             
             {/* Image Card */}
-            <div className="flex bg-surface border border-stroke p-2 shadow-lg rounded-sm w-full max-w-[320px] sm:max-w-[360px] aspect-[4/5]">
+            <div className="group flex bg-surface border border-stroke p-2 shadow-lg rounded-sm w-full max-w-[320px] sm:max-w-[360px] aspect-[4/5] transition-all duration-300 ease-out hover:-translate-y-2 hover:shadow-2xl hover:border-zinc-400 dark:hover:border-zinc-700 cursor-pointer">
               <img 
-                src="/profile.jpg" 
-                className="w-[85%] h-full object-cover grayscale contrast-110" 
+                src="/AkkiNEW.PNG" 
+                className="w-[85%] h-full object-cover grayscale contrast-110 transition-all duration-500 ease-out group-hover:grayscale-0" 
                 alt="Profile" 
               />
               <div className="w-[15%] flex items-center justify-center border-l border-stroke">
