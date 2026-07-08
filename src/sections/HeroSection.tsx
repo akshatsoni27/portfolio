@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 
 // Configuration for Rajat Maheshwari portfolio content (exactly as shown in reference photos)
@@ -22,8 +23,8 @@ const HERO_CONTENT = {
       href: 'mailto:rajat@example.com', // Replace with user's email if needed
       icon: (
         <svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-          <polyline points="22,6 12,13 2,6"/>
+          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+          <polyline points="22,6 12,13 2,6" />
         </svg>
       )
     },
@@ -32,7 +33,7 @@ const HERO_CONTENT = {
       href: 'tel:+1234567890', // Replace with user's phone if needed
       icon: (
         <svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
         </svg>
       )
     },
@@ -41,9 +42,9 @@ const HERO_CONTENT = {
       href: 'https://linkedin.com/in/rajat-maheshwari', // Replace with user's linkedin if needed
       icon: (
         <svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
-          <rect x="2" y="9" width="4" height="12"/>
-          <circle cx="4" cy="4" r="2"/>
+          <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+          <rect x="2" y="9" width="4" height="12" />
+          <circle cx="4" cy="4" r="2" />
         </svg>
       )
     },
@@ -52,7 +53,7 @@ const HERO_CONTENT = {
       href: 'https://github.com/rajat-maheshwari', // Replace with user's github if needed
       icon: (
         <svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+          <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
         </svg>
       )
     },
@@ -61,11 +62,11 @@ const HERO_CONTENT = {
       href: '/resume.pdf', // Replace with user's resume path if needed
       icon: (
         <svg viewBox="0 0 24 24" width="22" height="22" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-          <polyline points="14,2 14,8 20,8"/>
-          <line x1="16" y1="13" x2="8" y2="13"/>
-          <line x1="16" y1="17" x2="8" y2="17"/>
-          <polyline points="10,9 9,9 8,9"/>
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+          <polyline points="14,2 14,8 20,8" />
+          <line x1="16" y1="13" x2="8" y2="13" />
+          <line x1="16" y1="17" x2="8" y2="17" />
+          <polyline points="10,9 9,9 8,9" />
         </svg>
       )
     }
@@ -73,6 +74,24 @@ const HERO_CONTENT = {
 }
 
 export default function HeroSection() {
+  const [isLight, setIsLight] = useState(() => {
+    if (typeof window !== 'undefined') {
+      return document.documentElement.classList.contains('light')
+    }
+    return false
+  })
+
+  useEffect(() => {
+    const handleThemeChange = (e: Event) => {
+      const customEvent = e as CustomEvent
+      setIsLight(customEvent.detail === 'light')
+    }
+    window.addEventListener('themechange', handleThemeChange)
+    // Initial sync
+    setIsLight(document.documentElement.classList.contains('light'))
+    return () => window.removeEventListener('themechange', handleThemeChange)
+  }, [])
+
   // Staggered load animation variants
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -95,9 +114,36 @@ export default function HeroSection() {
   }
 
   return (
-    <section className="relative min-h-screen w-full bg-bg text-text-primary flex flex-col justify-start pt-28 pb-16 overflow-y-auto transition-colors duration-300">
-      {/* Background decoration grid */}
-      <div className="absolute inset-0 grid-bg opacity-40 pointer-events-none -z-10" />
+    <section className="relative min-h-[85vh] w-full text-text-primary flex flex-col justify-start pt-28 pb-4 overflow-y-auto transition-colors duration-300">
+      {/* Dynamic Theme Background */}
+      {isLight ? (
+        // Light Mode (White Theme): top-centered blue radial glow
+        <div 
+          className="absolute inset-0 -z-10 h-full w-full bg-white"
+          style={{
+            backgroundImage: 'radial-gradient(100% 50% at 50% 0%, rgba(0, 163, 255, 0.13) 0%, rgba(0, 163, 255, 0) 50%, rgba(0, 163, 255, 0) 100%)',
+          }}
+        />
+      ) : (
+        // Dark Mode (Black Theme): static dark grid + bottom-right violet radial glow
+        <div 
+          className="absolute inset-0 -z-10 h-full w-full bg-black"
+          style={{
+            backgroundImage: `
+              linear-gradient(to right, #1a1a1a 1px, transparent 1px),
+              linear-gradient(to bottom, #1a1a1a 1px, transparent 1px)
+            `,
+            backgroundSize: '6rem 4rem',
+          }}
+        >
+          <div 
+            className="absolute bottom-0 left-0 right-0 top-0"
+            style={{
+              backgroundImage: 'radial-gradient(circle 800px at 100% 200px, rgba(139, 92, 246, 0.15), transparent)',
+            }}
+          />
+        </div>
+      )}
 
       <motion.div
         variants={containerVariants}
@@ -115,9 +161,9 @@ export default function HeroSection() {
 
         {/* Main Grid: Box on Left, Name & Image on Right */}
         <div className="w-full max-w-5xl mx-auto px-6 mt-10 md:mt-12 flex flex-col md:flex-row items-center md:items-start justify-center gap-8 md:gap-0">
-          
+
           {/* Left Column: Bullet Box (appears below image on mobile via order-2) */}
-          <motion.div 
+          <motion.div
             variants={fadeUpVariants}
             className="w-full max-w-[320px] sm:max-w-[360px] mx-auto md:max-w-none md:mx-0 md:w-[45%] md:mt-24 md:-mr-10 lg:-mr-12 z-20 order-2 md:order-1"
           >
@@ -127,9 +173,9 @@ export default function HeroSection() {
               ))}
             </div>
           </motion.div>
-          
+
           {/* Right Column: Name & Image (appears first on mobile via order-1) */}
-          <motion.div 
+          <motion.div
             variants={fadeUpVariants}
             className="w-full md:w-[50%] flex flex-col items-center md:items-start z-10 order-1 md:order-2"
           >
@@ -137,13 +183,13 @@ export default function HeroSection() {
             <div className="text-center md:text-left tracking-[0.35em] md:tracking-[0.45em] font-sans font-semibold text-xs sm:text-sm text-text-primary uppercase mb-4 md:pl-2 select-none">
               {HERO_CONTENT.name}
             </div>
-            
+
             {/* Image Card */}
             <div className="group flex bg-surface border border-stroke p-2 shadow-lg rounded-sm w-full max-w-[320px] sm:max-w-[360px] aspect-[4/5] transition-all duration-300 ease-out hover:-translate-y-2 hover:shadow-2xl hover:border-zinc-400 dark:hover:border-zinc-700 cursor-pointer">
-              <img 
-                src="/AkkiNEW.PNG" 
-                className="w-[85%] h-full object-cover grayscale contrast-110 transition-all duration-500 ease-out group-hover:grayscale-0" 
-                alt="Profile" 
+              <img
+                src="/AkkiNEW.PNG"
+                className="w-[85%] h-full object-cover grayscale contrast-110 transition-all duration-500 ease-out group-hover:grayscale-0"
+                alt="Profile"
               />
               <div className="w-[15%] flex items-center justify-center border-l border-stroke">
                 <span className="[writing-mode:vertical-rl] rotate-180 uppercase tracking-[0.15em] text-[8px] md:text-[9px] font-mono text-muted font-bold py-4 select-none whitespace-nowrap">
@@ -156,7 +202,7 @@ export default function HeroSection() {
         </div>
 
         {/* Description Paragraph */}
-        <motion.div 
+        <motion.div
           variants={fadeUpVariants}
           className="w-full max-w-2xl mx-auto px-6 mt-10 md:mt-16 text-center select-none"
         >
@@ -170,12 +216,12 @@ export default function HeroSection() {
         </motion.div>
 
         {/* Social Links Row */}
-        <motion.div 
+        <motion.div
           variants={fadeUpVariants}
-          className="w-full flex justify-center items-center gap-6 sm:gap-8 mt-8 md:mt-10 mb-8 text-blue-600 dark:text-blue-500"
+          className="w-full flex justify-center items-center gap-6 sm:gap-8 mt-8 md:mt-10 mb-2 text-blue-600 dark:text-blue-500"
         >
           {HERO_CONTENT.socials.map((social) => (
-            <a 
+            <a
               key={social.type}
               href={social.href}
               target="_blank"

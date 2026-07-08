@@ -1,13 +1,10 @@
 import { motion } from 'framer-motion'
 
-const stats = [
-  { value: '20+', label: 'Projects Built' },
-  { value: '15+', label: 'Technologies' },
-]
+
 
 export default function AboutSection() {
   return (
-    <section className="bg-bg py-20 md:py-28">
+    <section className="bg-bg pt-10 pb-20 md:pt-12 md:pb-28 border-t border-stroke">
       <motion.div
         className="mx-auto max-w-[1100px] px-6 md:px-10 lg:px-16"
         initial={{ opacity: 0, y: 30 }}
@@ -15,48 +12,36 @@ export default function AboutSection() {
         transition={{ duration: 1, ease: [0.25, 0.1, 0.25, 1] }}
         viewport={{ once: true, margin: '-100px' }}
       >
-        <div className="grid items-center gap-16 md:grid-cols-2">
-          <div>
-            <div className="mb-5 flex items-center gap-3">
-              <span className="h-px w-8 bg-stroke" />
-              <span className="text-xs uppercase tracking-[0.3em] text-muted">About Me</span>
-            </div>
-            <h2 className="mb-5 text-4xl md:text-5xl font-display text-text-primary">
-              Who I <em className="italic">am</em>
-            </h2>
-            <p className="max-w-xl text-sm leading-relaxed text-muted md:text-base">
-              I&apos;m a Software Engineer / AI Researcher based in Santa Cruz, CA, passionate about building things that live at the intersection of AI and software engineering. Currently pursuing my degree at the University of California, Santa Cruz (UCSC), I work on applied machine learning and product-focused systems. I love writing clean, efficient code and thinking carefully about system design and user experience. Outside of tech, I&apos;m into photography, reading, and long walks.
+        {/* Centered Container */}
+        <div className="flex flex-col items-center justify-center max-w-4xl mx-auto">
+          
+          {/* Section Heading */}
+          <h2 className="mb-10 text-3xl md:text-4xl font-sans font-black tracking-wide uppercase text-center text-text-primary">
+            ABOUT ME
+          </h2>
+
+          {/* Left-Aligned Paragraphs Content */}
+          <div className="flex flex-col gap-6 text-left text-base leading-relaxed text-text-primary md:text-lg max-w-5xl">
+            <p>
+              I&apos;m a <strong className="font-bold text-text-primary">Computer Science student</strong> passionate about <strong className="font-bold text-text-primary">Artificial Intelligence, Machine Learning, Agentic AI, and Full-Stack Development</strong>. I enjoy building intelligent software that combines <strong className="font-bold text-text-primary">modern web technologies with AI</strong> to solve meaningful real-world problems. My interests lie at the intersection of <strong className="font-bold text-text-primary">software engineering, automation, and data-driven decision-making</strong>, where technology can create lasting impact.
             </p>
-
-            <div className="mt-8 flex flex-wrap gap-3">
-              {stats.map(stat => (
-                <span key={stat.label} className="rounded-full border border-stroke px-4 py-2 text-sm text-muted">
-                  {stat.value} {stat.label}
-                </span>
-              ))}
-            </div>
-
-            <a
-              href="/resume.pdf"
-              target="_blank"
-              rel="noreferrer"
-              className="group relative mt-8 inline-flex rounded-full border border-stroke px-6 py-3 text-sm text-muted transition-colors hover:text-text-primary"
-            >
-              <span className="absolute inset-[-2px] -z-10 rounded-full opacity-0 transition-opacity duration-300 group-hover:opacity-100 accent-gradient" />
-              Download Resume
-            </a>
+            <p>
+              Currently, I&apos;m expanding my expertise in <strong className="font-bold text-text-primary">Machine Learning, Large Language Models (LLMs), Retrieval-Augmented Generation (RAG), and AI agents</strong>, while strengthening my foundation in <strong className="font-bold text-text-primary">scalable backend systems and modern frontend development</strong>. I believe great software is built by combining <strong className="font-bold text-text-primary">thoughtful design, efficient engineering, and continuous learning</strong>.
+            </p>
+            <p>
+              Beyond academics, I serve as the <strong className="font-bold text-text-primary">Chair of the IEEE Computational Intelligence Society (CIS)</strong> at my university, where I organize technical events, lead collaborative initiatives, and foster a community passionate about emerging technologies. These experiences have strengthened my <strong className="font-bold text-text-primary">leadership, communication, and problem-solving skills</strong> while allowing me to contribute to the growth of aspiring engineers.
+            </p>
+            <p>
+              Over the past few years, I&apos;ve built projects ranging from <strong className="font-bold text-text-primary">AI-powered applications and machine learning systems to full-stack web platforms</strong>, continuously exploring how intelligent technologies can simplify complex workflows and improve everyday experiences. Whether it&apos;s developing <strong className="font-bold text-text-primary">scalable web applications, experimenting with AI models, or creating intuitive user interfaces</strong>, I enjoy turning ideas into impactful products.
+            </p>
+            <p>
+              My long-term goal is to become a <strong className="font-bold text-text-primary">Software Engineer specializing in AI systems</strong>, building intelligent products that are <strong className="font-bold text-text-primary">scalable, reliable, and designed to solve real-world challenges</strong>. I&apos;m always excited to learn <strong className="font-bold text-text-primary">emerging technologies</strong>, collaborate with talented people, and contribute to projects that push the boundaries of innovation.
+            </p>
           </div>
 
-          <div className="relative mx-auto w-full max-w-[280px]">
-            <div className="group relative aspect-[3/4] overflow-hidden rounded-3xl border border-stroke bg-surface">
-              <img src="/profile.jpg" alt="Profile" className="h-full w-full object-cover" />
-              <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-transparent to-text-primary/20 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-              <div className="absolute bottom-4 left-4 flex items-center gap-2 rounded-full border border-stroke bg-bg/80 px-3 py-1.5 text-xs backdrop-blur-md">
-                <span className="h-2 w-2 rounded-full bg-green-500" />
-                Akshat Soni · Open to work
-              </div>
-            </div>
-          </div>
+         
+            
+
         </div>
       </motion.div>
     </section>

@@ -13,6 +13,7 @@
   --muted: 0 0% 65%;
   --stroke: 0 0% 12%;
   --accent: 0 0% 96%;
+  --glow: 250 58% 12%;
   color-scheme: dark;
 }
 
@@ -23,6 +24,7 @@
   --muted: 0 0% 40%;
   --stroke: 0 0% 88%;
   --accent: 0 0% 10%;
+  --glow: 257 100% 88%;
   color-scheme: light;
 }
 
