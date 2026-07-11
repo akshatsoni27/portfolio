@@ -23,7 +23,7 @@ export default function FooterSection() {
                 </svg>
               </a>
               <a
-                href="tel:+18313468559"
+                href="tel:+917089459947"
                 className="flex h-10 w-10 items-center justify-center rounded-full border border-stroke bg-surface text-muted transition-all duration-300 hover:border-text-primary/30 hover:bg-bg hover:text-text-primary"
                 aria-label="Phone"
               >
@@ -32,7 +32,7 @@ export default function FooterSection() {
                 </svg>
               </a>
               <a
-                href="https://linkedin.com/in/akshatsoni27"
+                href="https://www.linkedin.com/in/akshat-soni-/"
                 target="_blank"
                 rel="noreferrer"
                 className="flex h-10 w-10 items-center justify-center rounded-full border border-stroke bg-surface text-muted transition-all duration-300 hover:border-text-primary/30 hover:bg-bg hover:text-text-primary"
@@ -114,21 +114,21 @@ export default function FooterSection() {
                 </a>
               </li>
               <li>
-                <a href="tel:+18313468559" className="flex items-center gap-3 text-base text-muted transition-colors duration-200 hover:text-text-primary">
+                <a href="tel:+917089459947" className="flex items-center gap-3 text-base text-muted transition-colors duration-200 hover:text-text-primary">
                   <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="h-[18px] w-[18px] flex-shrink-0 text-[#4E85BF]">
                     <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
                   </svg>
-                  <span>+1 (831) 346-8559</span>
+                  <span>+91 7089459947</span>
                 </a>
               </li>
               <li>
-                <a href="https://linkedin.com/in/akshatsoni27" target="_blank" rel="noreferrer" className="flex items-center gap-3 text-base text-muted transition-colors duration-200 hover:text-text-primary">
+                <a href="https://www.linkedin.com/in/akshat-soni-/" target="_blank" rel="noreferrer" className="flex items-center gap-3 text-base text-muted transition-colors duration-200 hover:text-text-primary">
                   <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="h-[18px] w-[18px] flex-shrink-0 text-[#4E85BF]">
                     <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
                     <rect x="2" y="9" width="4" height="12" />
                     <circle cx="4" cy="4" r="2" />
                   </svg>
-                  <span>linkedin.com/in/akshatsoni27</span>
+                  <span>linkedin.com/in/akshat-soni-</span>
                 </a>
               </li>
               <li>
@@ -144,7 +144,7 @@ export default function FooterSection() {
                   <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
                   <circle cx="12" cy="10" r="3" />
                 </svg>
-                <span>Santa Cruz, CA</span>
+                <span>Indore, India</span>
               </li>
             </ul>
           </div>

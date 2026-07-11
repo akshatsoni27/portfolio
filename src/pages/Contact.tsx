@@ -50,7 +50,7 @@ export default function ContactPage() {
                 </a>
 
                 <a
-                  href="https://linkedin.com/in/akshatsoni27"
+                  href="https://www.linkedin.com/in/akshat-soni-/"
                   target="_blank"
                   rel="noreferrer"
                   className="flex items-center gap-4 rounded-2xl border border-stroke bg-surface/30 p-4 transition-all duration-300 hover:bg-surface hover:border-text-primary/10"
@@ -64,7 +64,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <span className="block text-xs uppercase tracking-wider text-muted font-medium">LinkedIn</span>
-                    <span className="text-sm font-medium text-text-primary">linkedin.com/in/akshatsoni27</span>
+                    <span className="text-sm font-medium text-text-primary">linkedin.com/in/akshat-soni-</span>
                   </div>
                 </a>
 
@@ -77,7 +77,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <span className="block text-xs uppercase tracking-wider text-muted font-medium">Location</span>
-                    <span className="text-sm font-medium text-text-primary">Santa Cruz, CA (UCSC)</span>
+                    <span className="text-sm font-medium text-text-primary">Indore, India</span>
                   </div>
                 </div>
               </div>
