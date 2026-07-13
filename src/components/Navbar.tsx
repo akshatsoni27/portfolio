@@ -80,9 +80,9 @@ export default function Navbar() {
       <div
         ref={navContainerRef}
         className={`relative inline-flex items-center gap-1 rounded-full border p-1.5 backdrop-blur-md transition-all duration-300 ${theme === 'dark'
-            ? 'border-white/10 bg-black/40 shadow-black/35'
-            : 'border-black/10 bg-white/40 shadow-black/10'
-          } ${scrolled ? 'shadow-lg' : ''}`}
+            ? 'border-white/10 bg-black/70 shadow-black/40 shadow-lg'
+            : 'border-black/10 bg-white/70 shadow-black/10 shadow-lg'
+          }`}
       >
         {/* Sliding background indicator */}
         <div

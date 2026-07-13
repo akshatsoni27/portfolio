@@ -124,7 +124,7 @@ export default function ProjectsSection() {
           <div className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-blue-600 translate-x-[1.5px] translate-y-[1.5px]" />
 
           <h2 className="text-4xl md:text-6xl font-sans font-black tracking-tight text-text-primary text-center">
-            Project Showcase
+            PROJECT SHOWCASE
           </h2>
         </div>
 
@@ -154,7 +154,7 @@ export default function ProjectsSection() {
                 <span className="text-xs uppercase tracking-[0.3em] text-muted">Visual Experiments</span>
               </div>
               <h3 className="text-2xl md:text-3xl font-sans font-bold tracking-tight text-text-primary">
-                Recent Projects
+                RECENT PROJECTS
               </h3>
             </div>
             <span className="text-xs uppercase tracking-[0.2em] text-muted hidden md:inline">
@@ -219,7 +219,7 @@ export default function ProjectsSection() {
                 <span className="text-xs uppercase tracking-[0.3em] text-muted">Web Apps & Systems</span>
               </div>
               <h3 className="text-2xl md:text-3xl font-sans font-bold tracking-tight text-text-primary">
-                Engineering Portfolio
+                MORE PROJECTS
               </h3>
             </div>
 
