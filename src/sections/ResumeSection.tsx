@@ -221,8 +221,8 @@ export default function ResumeSection() {
                   type="button"
                   onClick={() => setActiveTab(tab.id)}
                   className={`flex items-center justify-center gap-3 rounded-[20px] px-5 py-4 text-sm font-semibold transition-all duration-300 ${active
-                      ? 'bg-[#4E85BF] text-white shadow-lg shadow-[#4E85BF]/25'
-                      : 'text-muted hover:bg-bg/80 hover:text-text-primary'
+                    ? 'bg-[#4E85BF] text-white shadow-lg shadow-[#4E85BF]/25'
+                    : 'text-muted hover:bg-bg/80 hover:text-text-primary'
                     }`}
                 >
                   {tab.icon}

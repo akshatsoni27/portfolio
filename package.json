@@ -9,7 +9,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@react-three/fiber": "^8.15.0",
+    "@react-three/drei": "^10.7.7",
+    "@react-three/fiber": "^8.18.0",
     "framer-motion": "^11.0.0",
     "gsap": "^3.15.0",
     "hls.js": "^1.5.0",
@@ -17,7 +18,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^7.18.0",
-    "three": "^0.160.0"
+    "three": "^0.160.1"
   },
   "devDependencies": {
     "@types/react": "^18.2.0",
