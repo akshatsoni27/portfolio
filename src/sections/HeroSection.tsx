@@ -72,7 +72,7 @@ const HERO_CONTENT = {
     }
   ]
 }
-
+//
 export default function HeroSection() {
   const [isLight, setIsLight] = useState(() => {
     if (typeof window !== 'undefined') {
