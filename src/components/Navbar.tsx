@@ -11,7 +11,7 @@ const NAV_LINKS = [
 export default function Navbar() {
   const location = useLocation()
   const [scrolled, setScrolled] = useState(false)
-  
+
   // Theme state: defaults to dark mode
   const [theme, setTheme] = useState<'dark' | 'light'>(() => {
     const savedTheme = localStorage.getItem('theme')
@@ -68,7 +68,7 @@ export default function Navbar() {
 
     const timer = setTimeout(updateIndicator, 50)
     window.addEventListener('resize', updateIndicator)
-    
+
     return () => {
       clearTimeout(timer)
       window.removeEventListener('resize', updateIndicator)
@@ -79,19 +79,17 @@ export default function Navbar() {
     <nav className="fixed top-0 left-0 right-0 z-50 flex justify-center px-4 pt-4 md:pt-6">
       <div
         ref={navContainerRef}
-        className={`relative inline-flex items-center gap-1 rounded-full border p-1.5 backdrop-blur-md transition-all duration-300 ${
-          theme === 'dark'
+        className={`relative inline-flex items-center gap-1 rounded-full border p-1.5 backdrop-blur-md transition-all duration-300 ${theme === 'dark'
             ? 'border-white/10 bg-black/40 shadow-black/35'
             : 'border-black/10 bg-white/40 shadow-black/10'
-        } ${scrolled ? 'shadow-lg' : ''}`}
+          } ${scrolled ? 'shadow-lg' : ''}`}
       >
         {/* Sliding background indicator */}
         <div
-          className={`absolute top-1.5 bottom-1.5 rounded-full border transition-all duration-300 ease-[cubic-bezier(0.25,1,0.5,1)] -z-10 ${
-            theme === 'dark'
+          className={`absolute top-1.5 bottom-1.5 rounded-full border transition-all duration-300 ease-[cubic-bezier(0.25,1,0.5,1)] -z-10 ${theme === 'dark'
               ? 'bg-white/10 border-white/5 shadow-inner'
               : 'bg-black/5 border-black/5 shadow-sm'
-          }`}
+            }`}
           style={{
             left: `${indicatorStyle.left}px`,
             width: `${indicatorStyle.width}px`,
@@ -101,11 +99,10 @@ export default function Navbar() {
 
         {/* Sliding top active marker */}
         <div
-          className={`absolute -top-[1.5px] h-[3px] w-8 rounded-full transition-all duration-300 ease-[cubic-bezier(0.25,1,0.5,1)] -translate-x-1/2 ${
-            theme === 'dark'
+          className={`absolute -top-[1.5px] h-[3px] w-8 rounded-full transition-all duration-300 ease-[cubic-bezier(0.25,1,0.5,1)] -translate-x-1/2 ${theme === 'dark'
               ? 'bg-white shadow-[0_0_8px_#fff,0_0_12px_#3b82f6]'
               : 'bg-[#4E85BF] shadow-[0_0_8px_#4E85BF]'
-          }`}
+            }`}
           style={{
             left: `${indicatorStyle.left + indicatorStyle.width / 2}px`,
             opacity: indicatorStyle.opacity,
@@ -128,10 +125,9 @@ export default function Navbar() {
             to={link.to}
             end={link.to === '/'}
             className={({ isActive }) =>
-              `relative z-10 rounded-full px-3.5 sm:px-5 py-1.5 sm:py-2 text-xs sm:text-sm font-medium transition-colors duration-300 select-none ${
-                isActive
-                  ? 'text-text-primary nav-link-active'
-                  : 'text-muted hover:text-text-primary'
+              `relative z-10 rounded-full px-3.5 sm:px-5 py-1.5 sm:py-2 text-xs sm:text-sm font-medium transition-colors duration-300 select-none ${isActive
+                ? 'text-text-primary nav-link-active'
+                : 'text-muted hover:text-text-primary'
               }`
             }
           >
@@ -143,9 +139,8 @@ export default function Navbar() {
 
         <button
           onClick={toggleTheme}
-          className={`flex items-center justify-center w-8 h-8 rounded-full transition-colors duration-200 ${
-            theme === 'dark' ? 'text-muted hover:text-white' : 'text-muted hover:text-black'
-          }`}
+          className={`flex items-center justify-center w-8 h-8 rounded-full transition-colors duration-200 ${theme === 'dark' ? 'text-muted hover:text-white' : 'text-muted hover:text-black'
+            }`}
           aria-label="Toggle theme"
         >
           {theme === 'dark' ? (

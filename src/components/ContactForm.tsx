@@ -127,9 +127,8 @@ export default function ContactForm() {
                   value={formData.name}
                   onChange={handleChange}
                   placeholder="John Doe"
-                  className={`w-full rounded-xl border ${
-                    errors.name ? 'border-red-500/50 focus:border-red-500 focus:ring-red-500/20' : 'border-stroke focus:border-[#4E85BF] focus:ring-[#4E85BF]/20'
-                  } bg-bg/40 px-4 py-3 text-sm text-text-primary placeholder-muted/40 transition-all duration-300 focus:outline-none focus:ring-2`}
+                  className={`w-full rounded-xl border ${errors.name ? 'border-red-500/50 focus:border-red-500 focus:ring-red-500/20' : 'border-stroke focus:border-[#4E85BF] focus:ring-[#4E85BF]/20'
+                    } bg-bg/40 px-4 py-3 text-sm text-text-primary placeholder-muted/40 transition-all duration-300 focus:outline-none focus:ring-2`}
                   disabled={status === 'submitting'}
                 />
                 {errors.name && (
@@ -148,9 +147,8 @@ export default function ContactForm() {
                   value={formData.email}
                   onChange={handleChange}
                   placeholder="john@example.com"
-                  className={`w-full rounded-xl border ${
-                    errors.email ? 'border-red-500/50 focus:border-red-500 focus:ring-red-500/20' : 'border-stroke focus:border-[#4E85BF] focus:ring-[#4E85BF]/20'
-                  } bg-bg/40 px-4 py-3 text-sm text-text-primary placeholder-muted/40 transition-all duration-300 focus:outline-none focus:ring-2`}
+                  className={`w-full rounded-xl border ${errors.email ? 'border-red-500/50 focus:border-red-500 focus:ring-red-500/20' : 'border-stroke focus:border-[#4E85BF] focus:ring-[#4E85BF]/20'
+                    } bg-bg/40 px-4 py-3 text-sm text-text-primary placeholder-muted/40 transition-all duration-300 focus:outline-none focus:ring-2`}
                   disabled={status === 'submitting'}
                 />
                 {errors.email && (
@@ -170,9 +168,8 @@ export default function ContactForm() {
                 value={formData.subject}
                 onChange={handleChange}
                 placeholder="Collaboration Proposal"
-                className={`w-full rounded-xl border ${
-                  errors.subject ? 'border-red-500/50 focus:border-red-500 focus:ring-red-500/20' : 'border-stroke focus:border-[#4E85BF] focus:ring-[#4E85BF]/20'
-                } bg-bg/40 px-4 py-3 text-sm text-text-primary placeholder-muted/40 transition-all duration-300 focus:outline-none focus:ring-2`}
+                className={`w-full rounded-xl border ${errors.subject ? 'border-red-500/50 focus:border-red-500 focus:ring-red-500/20' : 'border-stroke focus:border-[#4E85BF] focus:ring-[#4E85BF]/20'
+                  } bg-bg/40 px-4 py-3 text-sm text-text-primary placeholder-muted/40 transition-all duration-300 focus:outline-none focus:ring-2`}
                 disabled={status === 'submitting'}
               />
               {errors.subject && (
@@ -191,9 +188,8 @@ export default function ContactForm() {
                 onChange={handleChange}
                 placeholder="Hi Akshat, I would love to connect..."
                 rows={5}
-                className={`w-full resize-none rounded-xl border ${
-                  errors.message ? 'border-red-500/50 focus:border-red-500 focus:ring-red-500/20' : 'border-stroke focus:border-[#4E85BF] focus:ring-[#4E85BF]/20'
-                } bg-bg/40 px-4 py-3 text-sm text-text-primary placeholder-muted/40 transition-all duration-300 focus:outline-none focus:ring-2`}
+                className={`w-full resize-none rounded-xl border ${errors.message ? 'border-red-500/50 focus:border-red-500 focus:ring-red-500/20' : 'border-stroke focus:border-[#4E85BF] focus:ring-[#4E85BF]/20'
+                  } bg-bg/40 px-4 py-3 text-sm text-text-primary placeholder-muted/40 transition-all duration-300 focus:outline-none focus:ring-2`}
                 disabled={status === 'submitting'}
               />
               {errors.message && (

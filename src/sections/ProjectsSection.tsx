@@ -103,21 +103,21 @@ export default function ProjectsSection() {
 
   return (
     <section className="relative bg-bg py-20 md:py-28 overflow-hidden">
-      
+
       {/* Silk shader background (restricted to header area) */}
       <div className="absolute top-0 left-0 right-0 h-[500px] md:h-[580px] pointer-events-none z-0 opacity-70 dark:opacity-55 transition-opacity duration-300 overflow-hidden">
-        <Silk 
-          speed={2.2} 
-          scale={1.4} 
-          color={isLight ? '#00a3ff' : '#6366f1'} 
-          noiseIntensity={0.5} 
+        <Silk
+          speed={2.2}
+          scale={1.4}
+          color={isLight ? '#00a3ff' : '#6366f1'}
+          noiseIntensity={0.5}
         />
         {/* Soft fading mask to merge into the page body background */}
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-bg/40 to-bg" />
       </div>
 
       <div className="relative z-10 mx-auto max-w-[1200px] px-6 md:px-10 lg:px-16">
-        
+
         {/* Boxed Header Container with Corner Crosshairs */}
         <div className="relative border border-stroke/70 px-8 py-10 md:py-16 max-w-4xl mx-auto flex items-center justify-center bg-surface/20 backdrop-blur-sm rounded-lg mb-8">
           {/* Corner L-brackets */}
@@ -165,10 +165,10 @@ export default function ProjectsSection() {
               </h3>
             </div>
 
-            <a 
-              href="https://github.com/akshatsoni27" 
-              target="_blank" 
-              rel="noreferrer" 
+            <a
+              href="https://github.com/akshatsoni27"
+              target="_blank"
+              rel="noreferrer"
               className="hidden rounded-full border border-stroke px-5 py-2.5 text-sm text-muted transition-colors hover:text-text-primary md:inline-flex"
             >
               View all on GitHub →
@@ -246,10 +246,10 @@ export default function ProjectsSection() {
               >
                 {/* Image Showcase Wrapper */}
                 <div className="aspect-[16/10] w-full overflow-hidden bg-bg relative">
-                  <img 
-                    src={design.image} 
-                    alt={design.title} 
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
+                  <img
+                    src={design.image}
+                    alt={design.title}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
                   {/* Category Pill */}
                   <span className="absolute top-4 left-4 rounded-full bg-bg/85 backdrop-blur-md border border-stroke px-3 py-1 text-xs text-text-primary font-medium tracking-wide">
@@ -265,7 +265,7 @@ export default function ProjectsSection() {
                   <p className="mt-2 text-sm leading-relaxed text-muted flex-1">
                     {design.description}
                   </p>
-                  
+
                   <div className="mt-4 flex flex-wrap gap-2">
                     {design.tags.map(tag => (
                       <span key={tag} className="rounded-full border border-stroke px-3 py-1 text-xs text-muted">

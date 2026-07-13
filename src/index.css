@@ -90,6 +90,7 @@ p {
 }
 
 @keyframes blink {
+
   0%,
   100% {
     opacity: 1;
@@ -101,6 +102,7 @@ p {
 }
 
 @keyframes gradient-shift {
+
   0%,
   100% {
     background-position: 0% 50%;
