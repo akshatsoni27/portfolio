@@ -79,6 +79,18 @@ export default function ProjectsSection() {
               I'm currently polishing some exciting new projects. Please stay tuned for updates!
             </p>
           </div>
+          <a
+            href="https://github.com/akshatsoni27"
+            target="_blank"
+            rel="noreferrer"
+            className="group relative inline-flex items-center gap-2.5 rounded-full bg-blue-600 px-8 py-3 text-sm font-semibold text-white transition-all duration-300 hover:bg-blue-700 hover:shadow-[0_0_20px_rgba(37,99,235,0.45)]"
+          >
+            <span>Checkout GitHub</span>
+            <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="transition-transform duration-300 group-hover:translate-x-1">
+              <path d="M5 12h14" />
+              <path d="m12 5 7 7-7 7" />
+            </svg>
+          </a>
         </motion.div>
 
       </div>
