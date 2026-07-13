@@ -4,53 +4,50 @@ import Silk from '../components/Silk'
 
 const projects = [
   {
-    title: 'Vision Assistant',
-    category: 'AI/ML',
-    description: 'An assistant that combines computer vision and language models to help users inspect and summarize visual scenes in real time.',
-    tags: ['Python', 'PyTorch', 'FastAPI', 'React'],
-    github: 'https://github.com/akshatsoni27',
-    live: 'https://example.com',
-  },
+  title: 'SONAR Rock vs Mine Prediction',
+  category: 'MACHINE LEARNING',
+  description: 'A machine learning application that classifies sonar signals as rocks or underwater mines using Logistic Regression with real-time predictions through Streamlit.',
+  tags: ['Python', 'Streamlit', 'Scikit-learn', 'Logistic Regression'],
+  github: 'https://github.com/akshatsoni27/SONAR-Mine-vs-Rock'
+},
   {
-    title: 'Workflow Studio',
-    category: 'Full-Stack',
-    description: 'A collaborative platform for building, tracking, and shipping product workflows with a clean operational dashboard.',
-    tags: ['React', 'Node.js', 'PostgreSQL'],
-    github: 'https://github.com/akshatsoni27',
-    live: 'https://example.com',
-  },
+  title: 'Diabetes Risk Prediction',
+  category: 'HEALTHCARE AI',
+  description: 'An end-to-end ML application that predicts diabetes risk using Support Vector Machines and delivers instant health assessments through a modern Streamlit interface.',
+  tags: ['Python', 'SVM', 'Streamlit', 'Scikit-learn'],
+  github: 'https://github.com/akshatsoni27/Diabetes_Prediction'
+},
   {
-    title: 'System Monitor',
-    category: 'Systems',
-    description: 'A lightweight observability tool for capturing process health, logs, and performance signals on Linux environments.',
-    tags: ['C', 'Linux', 'Multithreading'],
-    github: 'https://github.com/akshatsoni27',
-    live: 'https://example.com',
-  },
-  {
-    title: 'NLP Playground',
-    category: 'NLP',
-    description: 'A set of semantic search and prompt tooling experiments for rapid prototyping of language interfaces.',
-    tags: ['Python', 'HuggingFace', 'LangChain'],
-    github: 'https://github.com/akshatsoni27',
-    live: 'https://example.com',
-  },
-  {
-    title: 'Game AI Lab',
-    category: 'Game AI',
-    description: 'A collection of reinforcement learning experiments and simulation toys used to test simple decision agents.',
-    tags: ['Python', 'Q-Learning', 'Pygame'],
-    github: 'https://github.com/akshatsoni27',
-    live: 'https://example.com',
-  },
-  {
-    title: 'Forecast Engine',
-    category: 'Data',
-    description: 'A forecasting toolkit for analyzing time-series trends and presenting them in a compact, visual workflow.',
-    tags: ['Python', 'ARIMA', 'Pandas', 'Matplotlib'],
-    github: 'https://github.com/akshatsoni27',
-    live: 'https://example.com',
-  },
+  title: 'AI Fake News Detector',
+  category: 'NATURAL LANGUAGE PROCESSING',
+  description: 'An NLP-powered web application that detects fake news using TF-IDF vectorization, Logistic Regression, and real-time text classification.',
+  tags: ['Python', 'NLTK', 'Scikit-learn', 'Streamlit'],
+  github: 'https://github.com/akshatsoni27/Fake-News-Detector'
+},
+  // {
+  //   title: 'NLP Playground',
+  //   category: 'NLP',
+  //   description: 'A set of semantic search and prompt tooling experiments for rapid prototyping of language interfaces.',
+  //   tags: ['Python', 'HuggingFace', 'LangChain'],
+  //   github: 'https://github.com/akshatsoni27',
+  //   live: 'https://example.com',
+  // },
+  // {
+  //   title: 'Game AI Lab',
+  //   category: 'Game AI',
+  //   description: 'A collection of reinforcement learning experiments and simulation toys used to test simple decision agents.',
+  //   tags: ['Python', 'Q-Learning', 'Pygame'],
+  //   github: 'https://github.com/akshatsoni27',
+  //   live: 'https://example.com',
+  // },
+  // {
+  //   title: 'Forecast Engine',
+  //   category: 'Data',
+  //   description: 'A forecasting toolkit for analyzing time-series trends and presenting them in a compact, visual workflow.',
+  //   tags: ['Python', 'ARIMA', 'Pandas', 'Matplotlib'],
+  //   github: 'https://github.com/akshatsoni27',
+  //   live: 'https://example.com',
+  // },
 ]
 
 const designs = [
@@ -246,8 +243,12 @@ export default function ProjectsSection() {
                 <div className="flex items-center justify-between text-xs uppercase tracking-[0.2em] text-muted">
                   <span>{String(index + 1).padStart(2, '0')}</span>
                   <div className="flex gap-3 normal-case tracking-normal">
-                    <a href={project.github} target="_blank" rel="noreferrer" className="hover:text-text-primary">GitHub ↗</a>
-                    <a href={project.live} target="_blank" rel="noreferrer" className="hover:text-text-primary">Live ↗</a>
+                    {project.github && (
+                      <a href={project.github} target="_blank" rel="noreferrer" className="hover:text-text-primary">GitHub ↗</a>
+                    )}
+                    {project.live && (
+                      <a href={project.live} target="_blank" rel="noreferrer" className="hover:text-text-primary">Live ↗</a>
+                    )}
                   </div>
                 </div>
 
