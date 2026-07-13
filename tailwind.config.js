@@ -4,8 +4,9 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        body: ['Inter', 'sans-serif'],
-        display: ['"Instrument Serif"', 'serif'],
+        body: ['Poppins', 'sans-serif'],
+        display: ['Poppins', 'sans-serif'],
+        sans: ['Poppins', 'sans-serif'],
       },
       colors: {
         bg: "hsl(var(--bg))",

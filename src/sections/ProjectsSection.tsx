@@ -55,33 +55,26 @@ const projects = [
 
 const designs = [
   {
-    title: 'AI Analytics Dashboard UI',
-    category: 'UI/UX Design',
-    description: 'A dark-themed dashboard concept for tracking LLM tokens, cost distribution, and agent throughput with clean data charts.',
-    image: 'https://images.unsplash.com/photo-1618005198919-d3d4b5a92ead?w=800&q=80',
-    tags: ['Figma', 'UI Design', 'Data Viz'],
-  },
+  title: 'Gerado',
+  category: 'STARTUP',
+  description: 'An AI-first startup focused on building intelligent digital products that combine modern web technologies, automation, and large language models to solve real-world problems.',
+  image: 'Gerado.png',
+  tags: ['AI', 'Startup', 'React', 'Node.js', 'LLMs']
+},
   {
-    title: 'Cognitive OS Brand Identity',
-    category: 'Brand Identity',
-    description: 'A complete branding package for an AI automation startup, featuring a fluid vector logo, custom iconography, and visual design assets.',
-    image: 'https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?w=800&q=80',
-    tags: ['Illustrator', 'Branding', 'Typography'],
-  },
-  {
-    title: 'Neumorphic Mobile Music Player',
-    category: 'Mobile UX',
-    description: 'A retro-modern iOS design experiment utilizing soft drop shadows, interactive dials, and smooth physical-feeling controls.',
-    image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80',
-    tags: ['Figma', 'iOS', 'Interaction Design'],
-  },
-  {
-    title: '3D Spatial Assistant Render',
-    category: '3D/Motion',
-    description: 'A conceptual 3D scene modeling an AI desktop orb companion, focusing on metallic finishes, glassmorphism, and neon lighting.',
-    image: 'https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?w=800&q=80',
-    tags: ['Blender', 'Spline 3D', 'KeyShot'],
-  },
+  title: 'AI Financial Research Agent',
+  category: 'AGENTIC AI',
+  description: 'An autonomous AI agent that retrieves live financial data, analyzes market trends, and delivers contextual insights using LLM-powered tool calling.',
+  image: 'AI_Finance.png',
+  tags: ['Agno', 'Groq', 'Yahoo Finance', 'Python', 'LLMs']
+},
+ {
+  title: 'Credit Risk Analysis System',
+  category: 'MACHINE LEARNING',
+  description: 'A production-ready machine learning pipeline that predicts credit risk using XGBoost and serves real-time insights through an interactive Streamlit dashboard.',
+  image: 'Credit_risk.png',
+  tags: ['Python', 'XGBoost', 'Streamlit', 'scikit-learn', 'ML']
+},
 ]
 
 export default function ProjectsSection() {
@@ -152,16 +145,81 @@ export default function ProjectsSection() {
           </a>
         </div>
 
-        {/* SECTION 1: Web Applications & Software */}
+        {/* SECTION 1: UI/UX & Creative Designs */}
         <div className="mt-20">
+          <div className="mb-10 flex items-end justify-between gap-6">
+            <div>
+              <div className="mb-3 flex items-center gap-3">
+                <span className="h-px w-8 bg-stroke" />
+                <span className="text-xs uppercase tracking-[0.3em] text-muted">Visual Experiments</span>
+              </div>
+              <h3 className="text-2xl md:text-3xl font-sans font-bold tracking-tight text-text-primary">
+                Recent Projects
+              </h3>
+            </div>
+            <span className="text-xs uppercase tracking-[0.2em] text-muted hidden md:inline">
+              Agentic AI · Machine Learning · Artificial Intelligence
+            </span>
+          </div>
+
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+            {designs.map((design, index) => (
+              <motion.article
+                key={design.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: index * 0.1 }}
+                viewport={{ once: true, margin: '-80px' }}
+                className="group relative flex flex-col rounded-3xl border border-stroke bg-surface overflow-hidden transition-all duration-300 hover:-translate-y-1.5 hover:border-transparent hover:shadow-[0_0_0_1.5px_rgba(6,182,212,0.4)]"
+              >
+                {/* Image Showcase Wrapper */}
+                <div className="aspect-[16/10] w-full overflow-hidden bg-bg relative">
+                  <img
+                    src={design.image}
+                    alt={design.title}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                  {/* Category Pill */}
+                  <span className="absolute top-4 left-4 rounded-full bg-bg/85 backdrop-blur-md border border-stroke px-3 py-1 text-xs text-text-primary font-medium tracking-wide">
+                    {design.category}
+                  </span>
+                </div>
+
+                {/* Description details */}
+                <div className="p-6 flex flex-col flex-1">
+                  <h4 className="text-xl font-bold text-text-primary group-hover:text-blue-600 dark:group-hover:text-blue-500 transition-colors duration-200">
+                    {design.title}
+                  </h4>
+                  <p className="mt-2 text-sm leading-relaxed text-muted flex-1">
+                    {design.description}
+                  </p>
+
+                  <div className="mt-4 flex flex-wrap gap-2">
+                    {design.tags.map(tag => (
+                      <span key={tag} className="rounded-full border border-stroke px-3 py-1 text-xs text-muted">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </motion.article>
+            ))}
+          </div>
+        </div>
+
+        {/* Spacer / Section Divider */}
+        <hr className="my-20 border-stroke" />
+
+        {/* SECTION 2: Web Applications & Software */}
+        <div>
           <div className="mb-10 flex items-end justify-between gap-6">
             <div>
               <div className="mb-3 flex items-center gap-3">
                 <span className="h-px w-8 bg-stroke" />
                 <span className="text-xs uppercase tracking-[0.3em] text-muted">Web Apps & Systems</span>
               </div>
-              <h3 className="text-2xl md:text-3xl font-display text-text-primary">
-                Engineering <em className="italic">Portfolio</em>
+              <h3 className="text-2xl md:text-3xl font-sans font-bold tracking-tight text-text-primary">
+                Engineering Portfolio
               </h3>
             </div>
 
@@ -208,71 +266,6 @@ export default function ProjectsSection() {
                       {tag}
                     </span>
                   ))}
-                </div>
-              </motion.article>
-            ))}
-          </div>
-        </div>
-
-        {/* Spacer / Section Divider */}
-        <hr className="my-20 border-stroke" />
-
-        {/* SECTION 2: UI/UX & Creative Designs (As requested by user) */}
-        <div>
-          <div className="mb-10 flex items-end justify-between gap-6">
-            <div>
-              <div className="mb-3 flex items-center gap-3">
-                <span className="h-px w-8 bg-stroke" />
-                <span className="text-xs uppercase tracking-[0.3em] text-muted">Visual Experiments</span>
-              </div>
-              <h3 className="text-2xl md:text-3xl font-display text-text-primary">
-                Design & <em className="italic">Explorations</em>
-              </h3>
-            </div>
-            <span className="text-xs uppercase tracking-[0.2em] text-muted hidden md:inline">
-              Figma · Blender · Brand Identity
-            </span>
-          </div>
-
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-            {designs.map((design, index) => (
-              <motion.article
-                key={design.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: index * 0.1 }}
-                viewport={{ once: true, margin: '-80px' }}
-                className="group relative flex flex-col rounded-3xl border border-stroke bg-surface overflow-hidden transition-all duration-300 hover:-translate-y-1.5 hover:border-transparent hover:shadow-[0_0_0_1.5px_rgba(6,182,212,0.4)]"
-              >
-                {/* Image Showcase Wrapper */}
-                <div className="aspect-[16/10] w-full overflow-hidden bg-bg relative">
-                  <img
-                    src={design.image}
-                    alt={design.title}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  />
-                  {/* Category Pill */}
-                  <span className="absolute top-4 left-4 rounded-full bg-bg/85 backdrop-blur-md border border-stroke px-3 py-1 text-xs text-text-primary font-medium tracking-wide">
-                    {design.category}
-                  </span>
-                </div>
-
-                {/* Description details */}
-                <div className="p-6 flex flex-col flex-1">
-                  <h4 className="text-xl font-bold text-text-primary group-hover:text-blue-600 dark:group-hover:text-blue-500 transition-colors duration-200">
-                    {design.title}
-                  </h4>
-                  <p className="mt-2 text-sm leading-relaxed text-muted flex-1">
-                    {design.description}
-                  </p>
-
-                  <div className="mt-4 flex flex-wrap gap-2">
-                    {design.tags.map(tag => (
-                      <span key={tag} className="rounded-full border border-stroke px-3 py-1 text-xs text-muted">
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
                 </div>
               </motion.article>
             ))}
