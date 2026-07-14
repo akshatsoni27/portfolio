@@ -111,10 +111,16 @@ const certifications = [
     issuer: 'Forage',
     date: 'July 2025',
     description: 'Solved real-world business cases using data analysis and forensic technology techniques.',
-    link: 'https://www.theforage.com/',
+    link: '/Deloitte Certification.pdf',
+  },
+  {
+    title: 'Python for Data Science',
+    issuer: 'NPTEL',
+    date: 'July 2025',
+    description: 'Built a strong foundation in Python programming for data analysis and machine learning.',
+    link: '/NPTEL Python for Data Science.pdf',
   },
 ]
-
 export default function ResumeSection() {
   const [activeTab, setActiveTab] = useState<ResumeTab>('education')
 
