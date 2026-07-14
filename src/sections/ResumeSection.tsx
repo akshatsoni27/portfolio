@@ -36,7 +36,18 @@ const tabs: Array<{ id: ResumeTab; label: string; icon: JSX.Element }> = [
   },
 ]
 
-const education = {
+interface Education {
+  degree: string
+  school: string
+  years: string
+  date: string
+  description?: string
+  gpa?: string
+  awards?: string
+  coursework?: string
+}
+
+const education: Education = {
   degree: 'Bachelor of Technology',
   school: 'Acropolis Institute of Technology & Research, Indore',
   years: '2022 - 2026',
@@ -179,6 +190,58 @@ export default function ResumeSection() {
                 {education.description && (
                   <p className="mt-4 text-sm md:text-base italic text-muted font-body">{education.description}</p>
                 )}
+              </div>
+            </div>
+
+            {/* Certifications Subsection */}
+            <div className="mt-16 border-t border-stroke/30 pt-12">
+              {/* Section Header */}
+              <div className="flex items-center justify-center gap-3 mb-10 text-2xl md:text-3xl font-semibold text-text-primary font-display">
+                <svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="text-[#2563EB]">
+                  <circle cx="12" cy="8" r="7" />
+                  <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88" />
+                </svg>
+                <span>Certifications</span>
+              </div>
+
+              {/* Certifications Grid */}
+              <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 text-left">
+                {certifications.map((cert) => (
+                  <div
+                    key={cert.title}
+                    className="rounded-[24px] border border-stroke bg-surface/40 p-6 hover:border-[#2563EB]/30 transition-all duration-300 shadow-sm flex flex-col justify-between group"
+                  >
+                    <div>
+                      <div className="flex items-center justify-between gap-4 mb-4">
+                        <span className="text-xs font-semibold uppercase tracking-wider text-[#2563EB] bg-[#2563EB]/10 rounded-full px-3 py-1">
+                          {cert.issuer}
+                        </span>
+                        <div className="text-xs text-muted font-medium">{cert.date}</div>
+                      </div>
+                      <h3 className="text-lg font-bold text-text-primary group-hover:text-[#2563EB] transition-colors duration-300 font-display">
+                        {cert.title}
+                      </h3>
+                      {cert.description && (
+                        <div className="mt-3 text-xs text-muted leading-relaxed font-body">
+                          {cert.description}
+                        </div>
+                      )}
+                    </div>
+
+                    {cert.link && (
+                      <div className="mt-6 pt-4 border-t border-stroke/30 flex justify-center">
+                        <a
+                          href={cert.link}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="w-full inline-flex items-center justify-center rounded-xl bg-[#2563EB] py-2.5 text-sm font-semibold text-white transition-all duration-300 hover:bg-[#1d4ed8] shadow-md shadow-[#2563EB]/15"
+                        >
+                          VIEW
+                        </a>
+                      </div>
+                    )}
+                  </div>
+                ))}
               </div>
             </div>
           </motion.div>
@@ -365,7 +428,7 @@ export default function ResumeSection() {
       </section>
 
       {/* Section 2: Details and Tabs (no Iridescence background, clean dark background) */}
-      <section className="bg-bg pt-8 pb-4 md:pt-10 md:pb-6 relative">
+      <section className="bg-bg pt-8 pb-24 md:pt-10 md:pb-32 relative">
         <div className="mx-auto max-w-[1100px] px-6 md:px-10 lg:px-16">
           {/* Tab Selector */}
           <div className="rounded-[28px] border border-stroke bg-surface/70 p-2 shadow-[0_20px_80px_rgba(0,0,0,0.18)] backdrop-blur-sm">
@@ -392,60 +455,6 @@ export default function ResumeSection() {
 
           {/* Tab Content */}
           <div className="mt-12">{activeContent}</div>
-        </div>
-      </section>
-
-      {/* Section 3: Certifications */}
-      <section className="bg-bg pb-24 md:pb-32 relative border-t border-stroke/30 pt-4 md:pt-6">
-        <div className="mx-auto max-w-[1100px] px-6 md:px-10 lg:px-16">
-          {/* Section Header */}
-          <div className="flex items-center justify-center gap-3 mb-12 text-2xl md:text-3xl font-semibold text-text-primary font-display">
-            <svg viewBox="0 0 24 24" width="28" height="28" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="text-[#2563EB]">
-              <circle cx="12" cy="8" r="7" />
-              <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88" />
-            </svg>
-            <span>Certifications</span>
-          </div>
-
-          {/* Certifications Grid */}
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {certifications.map((cert) => (
-              <div
-                key={cert.title}
-                className="rounded-[24px] border border-stroke bg-surface/40 p-6 hover:border-[#2563EB]/30 transition-all duration-300 shadow-sm flex flex-col justify-between group"
-              >
-                <div>
-                  <div className="flex items-center justify-between gap-4 mb-4">
-                    <span className="text-xs font-semibold uppercase tracking-wider text-[#2563EB] bg-[#2563EB]/10 rounded-full px-3 py-1">
-                      {cert.issuer}
-                    </span>
-                    <div className="text-xs text-muted font-medium">{cert.date}</div>
-                  </div>
-                  <h3 className="text-lg font-bold text-text-primary group-hover:text-[#2563EB] transition-colors duration-300 font-display">
-                    {cert.title}
-                  </h3>
-                  {cert.description && (
-                    <div className="mt-3 text-xs text-muted leading-relaxed font-body">
-                      {cert.description}
-                    </div>
-                  )}
-                </div>
-
-                {cert.link && (
-                  <div className="mt-6 pt-4 border-t border-stroke/30 flex justify-center">
-                    <a
-                      href={cert.link}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="w-full inline-flex items-center justify-center rounded-xl bg-[#2563EB] py-2.5 text-sm font-semibold text-white transition-all duration-300 hover:bg-[#1d4ed8] shadow-md shadow-[#2563EB]/15"
-                    >
-                      VIEW
-                    </a>
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
         </div>
       </section>
     </>
