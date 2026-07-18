@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState, type FormEvent, type ChangeEvent } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 
 interface FormData {
@@ -56,7 +56,7 @@ export default function ContactForm() {
   }
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => {
     const { name, value } = e.target
     setFormData(prev => ({ ...prev, [name]: value }))
@@ -65,57 +65,61 @@ export default function ContactForm() {
     }
   }
 
-  const handleSubmit = async (e: React.FormEvent) => {
-  e.preventDefault();
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
 
-  if (!validate()) return;
+    if (!validate()) return
 
-  setStatus("submitting");
+    const accessKey = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY
 
-  try {
-    const response = await fetch("https://api.web3forms.com/submit", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-      body: JSON.stringify({
-        access_key: import.meta.env.VITE_WEB3FORMS_ACCESS_KEY,
-
-        name: formData.fullName,
-        phone: formData.phone,
-        email: formData.email,
-        subject: formData.subject,
-        message: formData.message,
-
-        from_name: "Akshat Soni Portfolio",
-        replyto: formData.email,
-      }),
-    });
-
-    const result = await response.json();
-
-    if (result.success) {
-      setStatus("success");
-
-      setFormData({
-        fullName: "",
-        phone: "",
-        email: "",
-        subject: "",
-        message: "",
-      });
-
-      setErrors({});
-    } else {
-      console.error(result);
-      setStatus("error");
+    if (!accessKey) {
+      console.error('Missing VITE_WEB3FORMS_ACCESS_KEY')
+      setStatus('error')
+      return
     }
-  } catch (error) {
-    console.error(error);
-    setStatus("error");
+
+    setStatus('submitting')
+
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify({
+          access_key: accessKey,
+          name: formData.fullName,
+          phone: formData.phone,
+          email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+          from_name: 'Akshat Soni Portfolio',
+          replyto: formData.email,
+        }),
+      })
+
+      const result = await response.json()
+
+      if (result.success) {
+        setStatus('success')
+        setFormData({
+          fullName: '',
+          phone: '',
+          email: '',
+          subject: '',
+          message: '',
+        })
+        setErrors({})
+      } else {
+        console.error(result)
+        setStatus('error')
+      }
+    } catch (error) {
+      console.error(error)
+      setStatus('error')
+    }
   }
-};
 
   // Base classes using semantic tokens — works in both dark and light themes
   const inputBase =
