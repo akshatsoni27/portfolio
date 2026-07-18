@@ -56,7 +56,7 @@ export default function FooterSection() {
                 </svg>
               </a>
               <a
-                href="/resume.pdf"
+                href="/Resume_Akshat-soni.pdf"
                 target="_blank"
                 rel="noreferrer"
                 className="flex h-10 w-10 items-center justify-center rounded-full border border-stroke bg-surface text-muted transition-all duration-300 hover:border-text-primary/30 hover:bg-bg hover:text-text-primary"

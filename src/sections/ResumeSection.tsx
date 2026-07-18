@@ -95,11 +95,13 @@ const experiences = [
 ]
 
 const skillGroups = [
-  { name: 'Languages', items: ['Python', 'JavaScript', 'TypeScript', 'C/C++', 'Java', 'SQL', 'Bash'] },
-  { name: 'Frameworks', items: ['React', 'Node.js', 'Express', 'FastAPI', 'Flask', 'Next.js'] },
-  { name: 'AI/ML', items: ['PyTorch', 'TensorFlow', 'scikit-learn', 'HuggingFace', 'LangChain'] },
-  { name: 'Tools', items: ['Git', 'Docker', 'AWS', 'Linux', 'PostgreSQL', 'MongoDB', 'Redis'] },
-  { name: 'Other', items: ['REST APIs', 'GraphQL', 'WebSockets', 'CI/CD', 'Agile'] },
+  { name: 'Languages', items: ['Python', 'JavaScript', 'TypeScript', 'C/C++', 'SQL'] },
+  { name: 'Frontend', items: ['React', 'Next.js', 'Tailwind CSS', 'Vite'] },
+  { name: 'Backend', items: ['Node.js', 'Express.js', 'FastAPI'] },
+  { name: 'AI / ML', items: ['PyTorch', 'TensorFlow', 'scikit-learn', 'Hugging Face', 'LangChain', 'LangGraph', 'Agno', 'RAG', 'Prompt Engineering', 'LLMs', 'Fine-Tuning'] },
+  { name: 'Databases', items: ['MongoDB', 'PostgreSQL'] },
+  { name: 'Cloud & DevOps', items: ['Git', 'GitHub', 'Vercel', 'CI/CD'] },
+  { name: 'Other', items: ['REST APIs', 'JWT', 'Agile', 'GitHub Actions'] },
 ]
 
 const certifications = [
@@ -367,15 +369,6 @@ export default function ResumeSection() {
                   </div>
                 ))}
               </div>
-              <div className="overflow-hidden rounded-[28px] border border-stroke bg-surface/40 py-4">
-                <div className="marquee-track flex w-[200%] gap-3 px-4">
-                  {[...skillGroups.flatMap(group => group.items), ...skillGroups.flatMap(group => group.items)].map((item, index) => (
-                    <span key={`${item}-${index}`} className="rounded-full border border-stroke bg-bg px-4 py-2 text-sm text-muted">
-                      {item}
-                    </span>
-                  ))}
-                </div>
-              </div>
             </div>
           </motion.div>
         )
@@ -411,7 +404,7 @@ export default function ResumeSection() {
           {/* Download Button */}
           <div className="flex justify-center">
             <a
-              href="/resume.pdf"
+              href="/Resume_Akshat-soni.pdf"
               target="_blank"
               rel="noreferrer"
               className="inline-flex items-center gap-3 rounded-2xl bg-[#2563EB] px-8 py-4 text-base font-semibold text-white transition-transform duration-300 hover:-translate-y-0.5 hover:bg-[#1d4ed8] shadow-lg shadow-[#2563EB]/20"

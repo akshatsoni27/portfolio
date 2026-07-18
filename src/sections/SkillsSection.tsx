@@ -1,14 +1,14 @@
 import { motion } from 'framer-motion'
 
 const categories = [
-  { name: 'Languages', items: ['Python', 'JavaScript', 'TypeScript', 'C/C++', 'Java', 'SQL', 'Bash'] },
-  { name: 'Frameworks', items: ['React', 'Node.js', 'Express', 'FastAPI', 'Flask', 'Next.js'] },
-  { name: 'AI/ML', items: ['PyTorch', 'TensorFlow', 'scikit-learn', 'HuggingFace', 'LangChain'] },
-  { name: 'Tools', items: ['Git', 'Docker', 'AWS', 'Linux', 'PostgreSQL', 'MongoDB', 'Redis'] },
-  { name: 'Other', items: ['REST APIs', 'GraphQL', 'WebSockets', 'CI/CD', 'Agile'] },
+  { name: 'Languages', items: ['Python', 'JavaScript', 'TypeScript','C/C++', 'SQL'] },
+  { name: 'Frontend', items: ['React', 'Next.js', 'Tailwind CSS','Vite'] },
+  { name: 'Backend', items: ['Node.js', 'Express.js', 'FastAPI'] },
+  { name: 'AI / ML', items: ['PyTorch', 'TensorFlow', 'scikit-learn', 'Hugging Face', 'LangChain', 'LangGraph', 'Agno', 'RAG', 'Prompt Engineering', 'LLMs','Fine-Tuning'] },
+  { name: 'Databases', items: ['MongoDB', 'PostgreSQL'] },
+  { name: 'Cloud & DevOps', items: ['Git', 'GitHub','Vercel','CI/CD'] },
+  { name: 'Other', items: ['REST APIs','JWT', 'Agile', 'GitHub Actions'] },
 ]
-
-const marquee = ['Python', 'React', 'TypeScript', 'FastAPI', 'PyTorch', 'Docker', 'AWS', 'Git', 'PostgreSQL', 'MongoDB']
 
 export default function SkillsSection() {
   return (
@@ -45,16 +45,6 @@ export default function SkillsSection() {
               </div>
             </motion.div>
           ))}
-        </div>
-
-        <div className="mt-12 overflow-hidden rounded-2xl border border-stroke bg-surface/30 py-4">
-          <div className="marquee-track flex w-[200%] gap-3 px-4">
-            {[...marquee, ...marquee].map((item, index) => (
-              <span key={`${item}-${index}`} className="rounded-full border border-stroke bg-bg px-4 py-2 text-sm text-muted">
-                {item}
-              </span>
-            ))}
-          </div>
         </div>
       </div>
     </section>
