@@ -9,7 +9,7 @@ export default function FooterSection() {
           <div className="flex flex-col gap-5">
             <h3 className="text-xl font-semibold text-text-primary">Akshat Soni</h3>
             <p className="text-base leading-relaxed text-muted">
-              Computer Science senior at UCSC passionate about AI, LLMs, and backend engineering. Currently seeking <strong className="font-semibold text-text-primary">full-time opportunities</strong> in software engineering and AI research.
+              Computer Science graduate passionate about AI, LLMs, and backend engineering. <strong className="font-semibold text-text-primary">Seeking full-time Software Engineer or AI Engineer opportunities.</strong> 
             </p>
             <div className="flex flex-wrap gap-3 mt-1">
               <a

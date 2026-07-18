@@ -82,7 +82,7 @@ export default function ContactPage() {
                 </div>
               </div>
             </div>
-            
+
             <div className="hidden lg:block text-xs text-muted/60">
               <p>Typically replies within 24 hours.</p>
             </div>

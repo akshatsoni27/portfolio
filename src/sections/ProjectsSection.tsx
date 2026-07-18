@@ -2,7 +2,16 @@ import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import Silk from '../components/Silk'
 
-const projects = [
+interface Project {
+  title: string
+  category: string
+  description: string
+  tags: string[]
+  github?: string
+  live?: string
+}
+
+const projects: Project[] = [
   {
   title: 'SONAR Rock vs Mine Prediction',
   category: 'MACHINE LEARNING',
