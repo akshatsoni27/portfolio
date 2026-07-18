@@ -66,17 +66,56 @@ export default function ContactForm() {
   }
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    if (!validate()) return
-    setStatus('submitting')
-    try {
-      await new Promise(resolve => setTimeout(resolve, 1500))
-      setStatus('success')
-      setFormData({ fullName: '', phone: '', email: '', subject: '', message: '' })
-    } catch {
-      setStatus('error')
+  e.preventDefault();
+
+  if (!validate()) return;
+
+  setStatus("submitting");
+
+  try {
+    const response = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify({
+        access_key: import.meta.env.VITE_WEB3FORMS_ACCESS_KEY,
+
+        name: formData.fullName,
+        phone: formData.phone,
+        email: formData.email,
+        subject: formData.subject,
+        message: formData.message,
+
+        from_name: "Akshat Soni Portfolio",
+        replyto: formData.email,
+      }),
+    });
+
+    const result = await response.json();
+
+    if (result.success) {
+      setStatus("success");
+
+      setFormData({
+        fullName: "",
+        phone: "",
+        email: "",
+        subject: "",
+        message: "",
+      });
+
+      setErrors({});
+    } else {
+      console.error(result);
+      setStatus("error");
     }
+  } catch (error) {
+    console.error(error);
+    setStatus("error");
   }
+};
 
   // Base classes using semantic tokens — works in both dark and light themes
   const inputBase =
