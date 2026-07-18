@@ -78,13 +78,14 @@ export default function ContactForm() {
     }
   }
 
+  // Base classes using semantic tokens — works in both dark and light themes
   const inputBase =
-    'w-full rounded-xl border bg-surface/50 px-4 py-3 text-sm text-text-primary placeholder-muted/50 transition-all duration-200 focus:outline-none focus:ring-2'
+    'w-full rounded-xl border bg-bg px-4 py-3 text-sm text-text-primary placeholder-muted/60 transition-all duration-200 focus:outline-none focus:ring-2'
   const inputNormal = `${inputBase} border-stroke focus:border-[#2563EB] focus:ring-[#2563EB]/20`
-  const inputError  = `${inputBase} border-red-500/50 focus:border-red-500 focus:ring-red-500/20`
+  const inputError  = `${inputBase} border-red-500/60 focus:border-red-500 focus:ring-red-500/20`
 
   return (
-    <div className="relative w-full overflow-hidden rounded-3xl border border-stroke bg-surface/40 p-6 backdrop-blur-sm shadow-sm md:p-8">
+    <div className="relative w-full overflow-hidden rounded-3xl border border-stroke bg-surface p-6 shadow-sm md:p-8">
       <AnimatePresence mode="wait">
         {status === 'success' ? (
           <motion.div
@@ -106,7 +107,7 @@ export default function ContactForm() {
             </p>
             <button
               onClick={() => setStatus('idle')}
-              className="rounded-full border border-stroke bg-surface px-6 py-3 text-sm font-medium text-text-primary transition hover:border-[#2563EB]"
+              className="rounded-full border border-stroke bg-bg px-6 py-3 text-sm font-medium text-text-primary transition hover:border-[#2563EB]"
             >
               Send Another Message
             </button>
@@ -188,7 +189,7 @@ export default function ContactForm() {
                 value={formData.subject}
                 onChange={handleChange}
                 disabled={status === 'submitting'}
-                className={`${errors.subject ? inputError : inputNormal} appearance-none cursor-pointer`}
+                className={`${errors.subject ? inputError : inputNormal} cursor-pointer`}
               >
                 <option value="" disabled>Select a subject</option>
                 {SUBJECTS.map(s => (
@@ -226,7 +227,7 @@ export default function ContactForm() {
             <button
               type="submit"
               disabled={status === 'submitting'}
-              className="flex w-full items-center justify-center gap-2 rounded-xl bg-surface border border-stroke px-5 py-4 text-sm font-semibold text-muted transition hover:border-[#2563EB]/50 hover:text-text-primary disabled:opacity-50"
+              className="flex w-full items-center justify-center gap-2 rounded-xl border border-stroke bg-bg px-5 py-4 text-sm font-semibold text-muted transition hover:border-[#2563EB]/50 hover:text-text-primary disabled:opacity-50"
             >
               {status === 'submitting' ? (
                 <>
