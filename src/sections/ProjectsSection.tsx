@@ -64,21 +64,21 @@ const designs = [
   title: 'Gerado',
   category: 'STARTUP',
   description: 'An AI-first startup focused on building intelligent digital products that combine modern web technologies, automation, and large language models to solve real-world problems.',
-  image: 'Gerado.png',
+  image: '/Gerado.png',
   tags: ['AI', 'Startup', 'React', 'Node.js', 'LLMs']
 },
   {
   title: 'AI Financial Research Agent',
   category: 'AGENTIC AI',
   description: 'An autonomous AI agent that retrieves live financial data, analyzes market trends, and delivers contextual insights using LLM-powered tool calling.',
-  image: 'AI_Finance.png',
+  image: '/AI_Finance.png',
   tags: ['Agno', 'Groq', 'Yahoo Finance', 'Python', 'LLMs']
 },
  {
   title: 'Credit Risk Analysis System',
   category: 'MACHINE LEARNING',
   description: 'A production-ready machine learning pipeline that predicts credit risk using XGBoost and serves real-time insights through an interactive Streamlit dashboard.',
-  image: 'Credit_risk.png',
+  image: '/Credit_risk.png',
   tags: ['Python', 'XGBoost', 'Streamlit', 'scikit-learn', 'ML']
 },
 ]

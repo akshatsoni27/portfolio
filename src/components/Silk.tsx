@@ -1,5 +1,6 @@
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import { Renderer, Program, Mesh, Triangle, Vec3 } from 'ogl';
+import { isWebGLSupported } from '../utils/webgl';
 
 const vertex = `
 attribute vec2 position;
@@ -80,7 +81,14 @@ export default function Silk({
   rotation = 0
 }: Props) {
   const ref = useRef<HTMLCanvasElement>(null);
+  const [webglSupported, setWebglSupported] = useState(true);
+
   useEffect(() => {
+    if (!isWebGLSupported()) {
+      setWebglSupported(false);
+      return;
+    }
+
     const canvas = ref.current as HTMLCanvasElement;
     const parent = canvas.parentElement as HTMLElement;
 
@@ -142,8 +150,20 @@ export default function Silk({
     return () => {
       cancelAnimationFrame(frame);
       resizeObserver.disconnect();
+      gl.getExtension('WEBGL_lose_context')?.loseContext();
     };
   }, [speed, scale, color, noiseIntensity, rotation]);
+
+  if (!webglSupported) {
+    return (
+      <div
+        className="w-full h-full"
+        style={{
+          background: `linear-gradient(180deg, ${color}22 0%, transparent 100%)`,
+        }}
+      />
+    );
+  }
 
   return <canvas ref={ref} className="w-full h-full block" />;
 }

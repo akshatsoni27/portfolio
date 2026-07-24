@@ -1,5 +1,6 @@
 import { Renderer, Program, Mesh, Color, Triangle } from 'ogl';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { isWebGLSupported } from '../utils/webgl';
 
 const vertexShader = `
 attribute vec2 uv;
@@ -61,8 +62,14 @@ export default function Iridescence({
 }: IridescenceProps) {
   const ctnDom = useRef<HTMLDivElement>(null);
   const mousePos = useRef({ x: 0.5, y: 0.5 });
+  const [webglSupported, setWebglSupported] = useState(true);
 
   useEffect(() => {
+    if (!isWebGLSupported()) {
+      setWebglSupported(false);
+      return;
+    }
+
     if (!ctnDom.current) return;
     const ctn = ctnDom.current;
     const renderer = new Renderer();
@@ -130,10 +137,23 @@ export default function Iridescence({
       if (mouseReact) {
         window.removeEventListener('mousemove', handleMouseMove);
       }
-      ctn.removeChild(gl.canvas);
+      try {
+        ctn.removeChild(gl.canvas);
+      } catch (e) {
+        // Handle case where element was already removed or doesn't exist
+      }
       gl.getExtension('WEBGL_lose_context')?.loseContext();
     };
   }, [color, speed, amplitude, mouseReact]);
+
+  if (!webglSupported) {
+    return (
+      <div
+        className={`w-full h-full bg-gradient-to-tr from-sky-400/5 via-violet-400/10 to-fuchsia-400/5 ${className}`}
+        {...rest}
+      />
+    );
+  }
 
   return <div ref={ctnDom} className={`w-full h-full ${className}`} {...rest} />;
 }

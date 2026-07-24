@@ -20,13 +20,21 @@ export default function HLSVideo({ src, className = '', style }: HLSVideoProps) 
     let hls: import('hls.js').default | null = null
 
     const init = async () => {
-      const Hls = (await import('hls.js')).default
-      if (Hls.isSupported()) {
-        hls = new Hls({ lowLatencyMode: true })
-        hls.loadSource(src)
-        hls.attachMedia(video)
-      } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
-        video.src = src
+      try {
+        const Hls = (await import('hls.js')).default
+        if (Hls.isSupported()) {
+          hls = new Hls({ lowLatencyMode: true })
+          hls.loadSource(src)
+          hls.attachMedia(video)
+        } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+          video.src = src
+        }
+      } catch (error) {
+        console.error('Failed to dynamically import hls.js:', error)
+        // Fallback to native HLS playback if supported (Safari/iOS)
+        if (video.canPlayType('application/vnd.apple.mpegurl')) {
+          video.src = src
+        }
       }
     }
 

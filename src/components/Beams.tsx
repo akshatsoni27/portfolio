@@ -1,8 +1,9 @@
-import { forwardRef, useImperativeHandle, useEffect, useRef, useMemo, FC, ReactNode } from 'react';
+import { forwardRef, useImperativeHandle, useEffect, useRef, useMemo, FC, ReactNode, useState } from 'react';
 import * as THREE from 'three';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { PerspectiveCamera } from '@react-three/drei';
 import { degToRad } from 'three/src/math/MathUtils.js';
+import { isWebGLSupported } from '../utils/webgl';
 
 // ---------------------------------------------------------------------------
 // Types
@@ -197,6 +198,13 @@ const Beams: FC<BeamsProps> = ({
   rotation = 0,
 }) => {
   const meshRef = useRef<THREE.Mesh<THREE.BufferGeometry, THREE.ShaderMaterial>>(null!);
+  const [webglSupported, setWebglSupported] = useState(true);
+
+  useEffect(() => {
+    if (!isWebGLSupported()) {
+      setWebglSupported(false);
+    }
+  }, []);
 
   const beamMaterial = useMemo(
     () =>
@@ -253,6 +261,10 @@ const Beams: FC<BeamsProps> = ({
       }),
     [speed, noiseIntensity, scale]
   );
+
+  if (!webglSupported) {
+    return <div className="w-full h-full bg-black" />;
+  }
 
   return (
     <CanvasWrapper>

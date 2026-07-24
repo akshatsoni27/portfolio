@@ -1,5 +1,6 @@
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import { Renderer, Program, Mesh, Triangle, Vec2 } from 'ogl';
+import { isWebGLSupported } from '../utils/webgl';
 
 const vertex = `
 attribute vec2 position;
@@ -93,7 +94,14 @@ export default function DarkVeil({
   resolutionScale = 1
 }: Props) {
   const ref = useRef<HTMLCanvasElement>(null);
+  const [webglSupported, setWebglSupported] = useState(true);
+
   useEffect(() => {
+    if (!isWebGLSupported()) {
+      setWebglSupported(false);
+      return;
+    }
+
     const canvas = ref.current as HTMLCanvasElement;
     const parent = canvas.parentElement as HTMLElement;
 
@@ -150,7 +158,13 @@ export default function DarkVeil({
     return () => {
       cancelAnimationFrame(frame);
       window.removeEventListener('resize', resize);
+      gl.getExtension('WEBGL_lose_context')?.loseContext();
     };
   }, [hueShift, noiseIntensity, scanlineIntensity, speed, scanlineFrequency, warpAmount, resolutionScale]);
+
+  if (!webglSupported) {
+    return <div className="w-full h-full bg-zinc-950/90" />;
+  }
+
   return <canvas ref={ref} className="w-full h-full block" />;
 }
