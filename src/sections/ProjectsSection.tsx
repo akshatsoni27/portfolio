@@ -104,15 +104,27 @@ export default function ProjectsSection() {
     <section className="relative bg-bg py-20 md:py-28 overflow-hidden">
 
       {/* Silk shader background (restricted to header area) */}
-      <div className="absolute top-0 left-0 right-0 h-[500px] md:h-[580px] pointer-events-none z-0 opacity-70 dark:opacity-55 transition-opacity duration-300 overflow-hidden">
+      <div
+        className={`absolute top-0 left-0 right-0 h-[500px] md:h-[580px] pointer-events-none z-0 transition-opacity duration-300 overflow-hidden ${isLight ? 'opacity-95' : 'opacity-85 dark:opacity-70'}`}
+        style={isLight ? { filter: 'saturate(1.2) brightness(1.05)' } : undefined}
+      >
         <Silk
-          speed={2.2}
-          scale={1.4}
-          color={isLight ? '#00a3ff' : '#6366f1'}
-          noiseIntensity={0.5}
+          speed={isLight ? 2.8 : 2.1}
+          scale={isLight ? 1.08 : 1.45}
+          color={isLight ? '#3b82f6' : '#7c3aed'}
+          noiseIntensity={isLight ? 0.35 : 0.55}
+          rotation={isLight ? -0.06 : 0.03}
         />
+        {isLight && (
+          <div
+            className="absolute inset-0"
+            style={{
+              background: 'radial-gradient(82% 62% at 50% 10%, rgba(59,130,246,0.42) 0%, rgba(59,130,246,0.22) 34%, rgba(59,130,246,0) 74%)'
+            }}
+          />
+        )}
         {/* Soft fading mask to merge into the page body background */}
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-bg/40 to-bg" />
+        <div className={`absolute inset-0 bg-gradient-to-b from-transparent ${isLight ? 'via-bg/10 to-bg' : 'via-bg/40 to-bg'}`} />
       </div>
 
       <div className="relative z-10 mx-auto max-w-[1200px] px-6 md:px-10 lg:px-16">
