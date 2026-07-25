@@ -61,12 +61,6 @@ p {
   color: #000000 !important;
 }
 
-@media (pointer: fine) {
-  body {
-    cursor: none;
-  }
-}
-
 @keyframes scroll-down {
   from {
     transform: translateY(-100%);

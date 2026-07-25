@@ -1,7 +1,6 @@
 import { useEffect, Suspense, useState } from 'react'
 import { AnimatePresence } from 'framer-motion'
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
-import CustomCursor from './components/CustomCursor'
 import LoadingScreen from './components/LoadingScreen'
 import Navbar from './components/Navbar'
 import FooterSection from './sections/FooterSection'
@@ -27,7 +26,6 @@ export default function App() {
 
   return (
     <>
-      <CustomCursor />
       <AnimatePresence>
         {isLoading && (
           <LoadingScreen onComplete={() => setIsLoading(false)} />

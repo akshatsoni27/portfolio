@@ -29,7 +29,16 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
-  // Sync theme with document class and localStorage
+  // Sync theme with document class, localStorage, and notify listeners.
+  // This used to dispatch the 'themechange' CustomEvent inside the
+  // setTheme() updater function in toggleTheme() below. React calls
+  // updater functions during the render phase, so that dispatch was
+  // firing synchronously WHILE Navbar was rendering. Any listener that
+  // called setState in response (e.g. ProjectsSection) was then updating
+  // another component mid-render, which is what threw the "Cannot update
+  // a component while rendering a different component" warning and could
+  // cascade into the WebGL canvas losing its context. Doing it here, in
+  // an effect that runs after commit, fixes that.
   useEffect(() => {
     const root = document.documentElement
     if (theme === 'light') {
@@ -38,14 +47,12 @@ export default function Navbar() {
       root.classList.remove('light')
     }
     localStorage.setItem('theme', theme)
+    window.dispatchEvent(new CustomEvent('themechange', { detail: theme }))
   }, [theme])
 
   const toggleTheme = () => {
-    setTheme(prev => {
-      const next = prev === 'dark' ? 'light' : 'dark'
-      window.dispatchEvent(new CustomEvent('themechange', { detail: next }))
-      return next
-    })
+    // Pure updater now — no side effects during render.
+    setTheme(prev => (prev === 'dark' ? 'light' : 'dark'))
   }
 
   // Calculate sliding indicator styles
